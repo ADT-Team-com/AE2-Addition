@@ -1,0 +1,145 @@
+buildscript {
+	repositories {
+		//flatDir dirs: './proguard5.2.1/lib'
+		mavenCentral()
+		maven {
+			name = "forge"
+			url = "https://maven.minecraftforge.net/"
+		}
+		maven {
+			name = "github"
+			url = "https://github.com/juanmuscaria/maven/raw/master"
+		}
+		maven {
+			name = "sonatype"
+			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+	dependencies {
+		//classpath ':proguard:'
+		//classpath 'tech.justagod:cutter:2.1.0-SNAPSHOT'
+		//classpath 'net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.4-SNAPSHOT,)'
+		//classpath 'net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.6-SNAPSHOT,)'
+		classpath("com.anatawa12.forge:ForgeGradle:1.2-1.0.+")
+		classpath 'com.integral.grimoire:GrimoireShenanigans:[1.5.3,)'
+	}
+}
+
+//repositories {
+//	flatDir {
+//		dirs 'deps'
+//	}
+//}
+
+
+//apply plugin: 'cutter'
+apply plugin: 'java'
+apply plugin: 'forge'
+apply plugin: 'grimoire-shenanigans'
+//cutter.initializeDefault(true, false)
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+version = mod_version
+group = mod_group
+archivesBaseName = mod_archives_name
+
+minecraft {
+	version = "1.7.10-10.13.4.1614-1.7.10"
+	runDir = "run"
+	replace "@VERSION@", project.version
+
+}
+
+
+dependencies {
+	compile fileTree(dir: "deps", include: "*.jar")
+	//implementation group: 'com.github.stannismod.gext', name: 'forge1710', version: '1.5.0.0-SNAPSHOT'
+}
+
+processResources {
+	exclude "appeng"
+	from(sourceSets.main.resources.srcDirs) {
+		include 'mcmod.info'
+		expand 'version': project.version,
+				'mod_id': mod_id,
+				'mod_name': mod_name,
+				'mod_author': mod_author,
+				'mod_description': mod_description,
+				'mc_version': mc_version,
+				'mod_version': mod_version,
+				'mod_icon': mod_icon
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+		exclude 'mcmod.info'
+	}
+}
+
+jar {
+	exclude "appeng"
+	manifest {
+		attributes 'FMLCorePlugin': 'com.adt.tmi.asm.ASMCoreMod'
+		attributes 'FMLCorePluginContainsFMLMod': 'true'
+		attributes "ForceLoadAsMod": "true"
+	}
+}
+
+task devJar(type: Jar) {
+	classifier = 'dev'
+	exclude "appeng"
+	from sourceSets.main.output
+}
+
+task sourcesJar(type: Jar) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+//task proguard(type: proguard.gradle.ProGuardTask) {
+//    libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
+//    configuration 'proguard.txt'
+//
+//    injars 'build/libs/'
+//    outjars 'build/libs/out'
+//}
+
+artifacts {
+	archives devJar
+	archives sourcesJar
+}
+
+
+def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + "mixins.srg"
+
+reobf {
+	addExtraSrgFile mixinSrg
+}
+
+
+afterEvaluate {
+	tasks.compileJava.options.compilerArgs += ["-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}"]
+}
+
+task client(type: Jar) {
+	baseName = "../unobfuscated/" + mod_archives_name + mod_version +  "Client"
+	//baseName = "iMine-Client"
+
+	from(zipTree("build/unobfuscated/" + mod_archives_name + mod_version +  ".jar")) {
+		include "com/adt/**"
+		include "mcmod.info"
+		include "assets/**"
+	}
+}
+
+task server(type: Jar) {
+	baseName = "../unobfuscated/" + mod_archives_name + mod_version + "Server"
+	//baseName = "iMine-Server"
+
+	from(zipTree("build/unobfuscated/" + mod_archives_name + mod_version + ".jar")) {
+		include "com/adt/**"
+		include "mcmod.info"
+		include "assets/**"
+	}
+}
