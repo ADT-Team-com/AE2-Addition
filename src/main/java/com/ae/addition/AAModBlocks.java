@@ -1,5 +1,6 @@
 package com.ae.addition;
 
+import appeng.block.AEBaseItemBlock;
 import com.ae.addition.common.blocks.*;
 import com.ae.addition.common.tile.*;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -11,22 +12,19 @@ import net.minecraft.tileentity.TileEntity;
 
 public class AAModBlocks {
 
-    public static final Block A_CRAFTING_STORAGE = new BlockACraftingStorage();
-    public static final Block A_ACCELERATORS = new BlockAAccelerators();
+    public static final Block A_CRAFTING_STORAGE = new BlockACraftingStorage().setCreativeTab(AE2Addition.AE2_ADDITION_TAB);
+    public static final Block A_ACCELERATORS = new BlockAAccelerators().setCreativeTab(AE2Addition.AE2_ADDITION_TAB);
 
     public static final Block A_ADVANCED_INTERFACE = new BlockAdvancedInterface();
     public static final Block A_HYBRID_INTERFACE = new BlockHybridInterface();
     public static final Block A_ULTIMATE_INTERFACE = new BlockUltimateInterface();
 
     public static void registerBlocks() {
-        //registerBlock(A_CRAFTING_STORAGE, ItemBlockACraftingStorage.class);
-        //registerBlock(A_ACCELERATORS, ItemBlockAAccelerators.class);
         GameRegistry.registerBlock(A_CRAFTING_STORAGE, ItemBlockACraftingStorage.class, "a_crafting_storage");
         GameRegistry.registerBlock(A_ACCELERATORS, ItemBlockAAccelerators.class, "a_accelerators");
-        registerBlock(A_ADVANCED_INTERFACE);
-        registerBlock(A_HYBRID_INTERFACE);
-        registerBlock(A_ULTIMATE_INTERFACE);
-        //GameRegistry.registerTileEntity(TileACraftingStorage.class, "TileACraftingStorage");
+        registerBlock(A_ADVANCED_INTERFACE, AEBaseItemBlock.class);
+        registerBlock(A_HYBRID_INTERFACE, AEBaseItemBlock.class);
+        registerBlock(A_ULTIMATE_INTERFACE, AEBaseItemBlock.class);
         registerTile(TileACraftingStorage.class);
         registerTile(TileAAccelerators.class);
         registerTile(TileAdvancedInterface.class);
