@@ -1,6 +1,5 @@
 buildscript {
 	repositories {
-		//flatDir dirs: './proguard5.2.1/lib'
 		mavenCentral()
 		maven {
 			name = "forge"
@@ -16,27 +15,14 @@ buildscript {
 		}
 	}
 	dependencies {
-		//classpath ':proguard:'
-		//classpath 'tech.justagod:cutter:2.1.0-SNAPSHOT'
-		//classpath 'net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.4-SNAPSHOT,)'
-		//classpath 'net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.6-SNAPSHOT,)'
 		classpath("com.anatawa12.forge:ForgeGradle:1.2-1.0.+")
 		classpath 'com.integral.grimoire:GrimoireShenanigans:[1.5.3,)'
 	}
 }
 
-//repositories {
-//	flatDir {
-//		dirs 'deps'
-//	}
-//}
-
-
-//apply plugin: 'cutter'
 apply plugin: 'java'
 apply plugin: 'forge'
 apply plugin: 'grimoire-shenanigans'
-//cutter.initializeDefault(true, false)
 
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
@@ -55,7 +41,6 @@ minecraft {
 
 dependencies {
 	compile fileTree(dir: "deps", include: "*.jar")
-	//implementation group: 'com.github.stannismod.gext', name: 'forge1710', version: '1.5.0.0-SNAPSHOT'
 }
 
 processResources {
@@ -77,14 +62,6 @@ processResources {
 	}
 }
 
-jar {
-	exclude "appeng"
-	manifest {
-		attributes 'FMLCorePlugin': 'com.adt.tmi.asm.ASMCoreMod'
-		attributes 'FMLCorePluginContainsFMLMod': 'true'
-		attributes "ForceLoadAsMod": "true"
-	}
-}
 
 task devJar(type: Jar) {
 	classifier = 'dev'
@@ -97,13 +74,6 @@ task sourcesJar(type: Jar) {
 	from sourceSets.main.allSource
 }
 
-//task proguard(type: proguard.gradle.ProGuardTask) {
-//    libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
-//    configuration 'proguard.txt'
-//
-//    injars 'build/libs/'
-//    outjars 'build/libs/out'
-//}
 
 artifacts {
 	archives devJar
@@ -120,26 +90,4 @@ reobf {
 
 afterEvaluate {
 	tasks.compileJava.options.compilerArgs += ["-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}"]
-}
-
-task client(type: Jar) {
-	baseName = "../unobfuscated/" + mod_archives_name + mod_version +  "Client"
-	//baseName = "iMine-Client"
-
-	from(zipTree("build/unobfuscated/" + mod_archives_name + mod_version +  ".jar")) {
-		include "com/adt/**"
-		include "mcmod.info"
-		include "assets/**"
-	}
-}
-
-task server(type: Jar) {
-	baseName = "../unobfuscated/" + mod_archives_name + mod_version + "Server"
-	//baseName = "iMine-Server"
-
-	from(zipTree("build/unobfuscated/" + mod_archives_name + mod_version + ".jar")) {
-		include "com/adt/**"
-		include "mcmod.info"
-		include "assets/**"
-	}
 }
