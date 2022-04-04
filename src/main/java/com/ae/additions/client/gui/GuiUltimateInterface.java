@@ -13,7 +13,7 @@ import appeng.core.sync.packets.PacketConfigButton;
 import appeng.core.sync.packets.PacketSwitchGuis;
 import appeng.helpers.IInterfaceHost;
 import com.ae.additions.AE2Addition;
-import com.ae.additions.common.container.ContainerUltimateInterface;
+import com.ae.additions.container.ContainerUltimateInterface;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.InventoryPlayer;
 import org.lwjgl.input.Mouse;

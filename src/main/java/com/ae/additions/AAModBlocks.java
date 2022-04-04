@@ -1,8 +1,8 @@
 package com.ae.additions;
 
 import appeng.block.AEBaseItemBlock;
-import com.ae.additions.common.blocks.*;
-import com.ae.additions.common.tile.*;
+import com.ae.additions.blocks.*;
+import com.ae.additions.tile.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;

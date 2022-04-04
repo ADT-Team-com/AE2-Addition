@@ -1,4 +1,4 @@
-package com.ae.additions.common.container;
+package com.ae.additions.container;
 
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.Settings;
@@ -11,10 +11,10 @@ import appeng.container.slot.SlotNormal;
 import appeng.container.slot.SlotRestrictedInput;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
-import com.ae.additions.common.utils.TAdvancedDualityInterface;
+import com.ae.additions.utils.THybridDualityInterface;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class ContainerAdvancedInterface extends ContainerUpgradeable {
+public class ContainerHybridInterface extends ContainerUpgradeable {
 
     private final DualityInterface myDuality;
 
@@ -24,15 +24,15 @@ public class ContainerAdvancedInterface extends ContainerUpgradeable {
     @GuiSync(4)
     public YesNo iTermMode = YesNo.YES;
 
-    public ContainerAdvancedInterface(final InventoryPlayer ip, final IInterfaceHost te) {
+    public ContainerHybridInterface(final InventoryPlayer ip, final IInterfaceHost te) {
         super(ip, te.getInterfaceDuality().getHost());
 
         this.myDuality = te.getInterfaceDuality();
 
-        for (int x = 0; x < TAdvancedDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
+        for (int x = 0; x < THybridDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
             int y = x / 9;
             this.addSlotToContainer(new SlotRestrictedInput(SlotRestrictedInput.PlacableItemType.ENCODED_PATTERN, this.myDuality.getPatterns(),
-                    x, 8 + 18 * x - 162 * y, 97 + 18 * y, this.getInventoryPlayer()));
+                    x, 8 + 18 * x - 162 * y, 97 + 19 * y, this.getInventoryPlayer()));
         }
 
         for (int x = 0; x < DualityInterface.NUMBER_OF_CONFIG_SLOTS; x++) {
@@ -45,12 +45,12 @@ public class ContainerAdvancedInterface extends ContainerUpgradeable {
     }
 
     protected void bindPlayerInventory(final InventoryPlayer inventoryPlayer, final int offsetX, final int offsetY) {
-        super.bindPlayerInventory(inventoryPlayer, offsetX, 147);//211 - 63
+        super.bindPlayerInventory(inventoryPlayer, offsetX, 211 - 44);//211 - 63
     }
 
     @Override
     protected int getHeight() {
-        return 229;
+        return 250;
     }
 
     @Override

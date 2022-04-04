@@ -1,4 +1,4 @@
-package com.ae.additions.common.utils;
+package com.ae.additions.utils;
 
 import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.api.networking.events.MENetworkCraftingPatternChange;
@@ -17,18 +17,18 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class TAdvancedDualityInterface extends DualityInterface implements ITDualityInterface {
-    public static final int NUMBER_OF_PATTERN_SLOTS = 18;
+public class TUltimateDualityInterface extends DualityInterface implements ITDualityInterface {
+
+    public static final int NUMBER_OF_PATTERN_SLOTS = 36;
     private final AppEngInternalInventory patterns = new AppEngInternalInventory(this, NUMBER_OF_PATTERN_SLOTS);
 
-    public TAdvancedDualityInterface(AENetworkProxy networkProxy, IInterfaceHost ih) {
+    public TUltimateDualityInterface(AENetworkProxy networkProxy, IInterfaceHost ih) {
         super(networkProxy, ih);
     }
 
     @Override
     public void onChangeInventory(IInventory inv, int slot, InvOperation mc, ItemStack removed, ItemStack added) {
         MixinDualityInterfaceAccessor accessor = (MixinDualityInterfaceAccessor) this;
-        //if (accessor.getIsWorking() == slot) {
         if (accessor.getIsWorking()) {
             return;
         }

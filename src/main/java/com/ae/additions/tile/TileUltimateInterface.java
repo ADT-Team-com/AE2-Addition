@@ -1,4 +1,4 @@
-package com.ae.additions.common.tile;
+package com.ae.additions.tile;
 
 import appeng.api.config.Actionable;
 import appeng.api.config.Upgrades;
@@ -26,7 +26,7 @@ import appeng.tile.inventory.InvOperation;
 import appeng.tile.misc.TileInterface;
 import appeng.util.Platform;
 import com.ae.additions.AAModBlocks;
-import com.ae.additions.common.utils.TUltimateDualityInterface;
+import com.ae.additions.utils.TUltimateDualityInterface;
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
@@ -83,7 +83,6 @@ public class TileUltimateInterface extends TileInterface {
             } else {
                 this.setOrientation((this.pointAt.offsetY != 0) ? ForgeDirection.SOUTH : ForgeDirection.UP, this.pointAt.getOpposite());
             }
-//            this.getProxy().setValidSides((EnumSet)EnumSet.complementOf((EnumSet<Enum>)EnumSet.of((E)this.pointAt)));
             this.getProxy().setValidSides(EnumSet.complementOf(EnumSet.of(this.pointAt)));
             this.markForUpdate();
             this.func_70296_d();

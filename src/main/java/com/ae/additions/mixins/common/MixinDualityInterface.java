@@ -1,7 +1,7 @@
 package com.ae.additions.mixins.common;
 
 import appeng.helpers.DualityInterface;
-import com.ae.additions.common.utils.ITDualityInterface;
+import com.ae.additions.utils.ITDualityInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

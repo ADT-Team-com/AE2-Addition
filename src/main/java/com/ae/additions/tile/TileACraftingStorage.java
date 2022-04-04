@@ -1,4 +1,4 @@
-package com.ae.additions.common.tile;
+package com.ae.additions.tile;
 
 import appeng.tile.crafting.TileCraftingStorageTile;
 import appeng.tile.crafting.TileCraftingTile;

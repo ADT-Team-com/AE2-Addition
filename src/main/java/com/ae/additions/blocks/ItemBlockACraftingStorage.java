@@ -1,4 +1,4 @@
-package com.ae.additions.common.blocks;
+package com.ae.additions.blocks;
 
 import appeng.block.AEBaseItemBlock;
 import net.minecraft.block.Block;

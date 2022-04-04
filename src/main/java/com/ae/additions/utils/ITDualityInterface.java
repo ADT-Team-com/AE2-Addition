@@ -1,4 +1,4 @@
-package com.ae.additions.common.utils;
+package com.ae.additions.utils;
 
 public interface ITDualityInterface {
 

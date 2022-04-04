@@ -1,5 +1,4 @@
-package com.ae.additions.common.utils;
-
+package com.ae.additions.utils;
 import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.api.networking.events.MENetworkCraftingPatternChange;
 import appeng.helpers.DualityInterface;
@@ -17,12 +16,12 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class TUltimateDualityInterface extends DualityInterface implements ITDualityInterface {
+public class THybridDualityInterface extends DualityInterface implements ITDualityInterface {
 
-    public static final int NUMBER_OF_PATTERN_SLOTS = 36;
+    public static final int NUMBER_OF_PATTERN_SLOTS = 27;
     private final AppEngInternalInventory patterns = new AppEngInternalInventory(this, NUMBER_OF_PATTERN_SLOTS);
 
-    public TUltimateDualityInterface(AENetworkProxy networkProxy, IInterfaceHost ih) {
+    public THybridDualityInterface(AENetworkProxy networkProxy, IInterfaceHost ih) {
         super(networkProxy, ih);
     }
 

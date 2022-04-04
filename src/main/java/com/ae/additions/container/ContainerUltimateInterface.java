@@ -1,4 +1,4 @@
-package com.ae.additions.common.container;
+package com.ae.additions.container;
 
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.Settings;
@@ -11,10 +11,10 @@ import appeng.container.slot.SlotNormal;
 import appeng.container.slot.SlotRestrictedInput;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
-import com.ae.additions.common.utils.THybridDualityInterface;
+import com.ae.additions.utils.TUltimateDualityInterface;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class ContainerHybridInterface extends ContainerUpgradeable {
+public class ContainerUltimateInterface extends ContainerUpgradeable {
 
     private final DualityInterface myDuality;
 
@@ -24,24 +24,23 @@ public class ContainerHybridInterface extends ContainerUpgradeable {
     @GuiSync(4)
     public YesNo iTermMode = YesNo.YES;
 
-    public ContainerHybridInterface(final InventoryPlayer ip, final IInterfaceHost te) {
+    public ContainerUltimateInterface(final InventoryPlayer ip, final IInterfaceHost te) {
         super(ip, te.getInterfaceDuality().getHost());
 
         this.myDuality = te.getInterfaceDuality();
 
-        for (int x = 0; x < THybridDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
-            //int y = ((x / 9 ) !=0 ) ? x / 9 : 0;
+        for (int x = 0; x < TUltimateDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
             int y = x / 9;
             this.addSlotToContainer(new SlotRestrictedInput(SlotRestrictedInput.PlacableItemType.ENCODED_PATTERN, this.myDuality.getPatterns(),
-                    x, 8 + 18 * x - 162 * y, 97 + 19 * y, this.getInventoryPlayer()));
+                    x, 8 + 18 * x - 162 * y, 78 + 19 * y, this.getInventoryPlayer()));
         }
 
         for (int x = 0; x < DualityInterface.NUMBER_OF_CONFIG_SLOTS; x++) {
-            this.addSlotToContainer(new SlotFake(this.myDuality.getConfig(), x, 8 + 18 * x, 35));
+            this.addSlotToContainer(new SlotFake(this.myDuality.getConfig(), x, 8 + 18 * x, 16));
         }
 
         for (int x = 0; x < DualityInterface.NUMBER_OF_STORAGE_SLOTS; x++) {
-            this.addSlotToContainer(new SlotNormal(this.myDuality.getStorage(), x, 8 + 18 * x, 35 + 18));
+            this.addSlotToContainer(new SlotNormal(this.myDuality.getStorage(), x, 8 + 18 * x, 16 + 18));
         }
     }
 
@@ -91,4 +90,5 @@ public class ContainerHybridInterface extends ContainerUpgradeable {
     private void setInterfaceTerminalMode(final YesNo iTermMode) {
         this.iTermMode = iTermMode;
     }
+
 }

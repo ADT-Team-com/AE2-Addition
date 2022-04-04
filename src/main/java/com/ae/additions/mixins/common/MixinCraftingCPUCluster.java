@@ -2,7 +2,7 @@ package com.ae.additions.mixins.common;
 
 import appeng.me.cluster.implementations.CraftingCPUCluster;
 import appeng.tile.crafting.TileCraftingTile;
-import com.ae.additions.common.utils.IAdvancedAccelerator;
+import com.ae.additions.utils.IAdvancedAccelerator;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;

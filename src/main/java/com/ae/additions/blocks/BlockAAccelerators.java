@@ -1,4 +1,4 @@
-package com.ae.additions.common.blocks;
+package com.ae.additions.blocks;
 
 import appeng.block.crafting.BlockCraftingUnit;
 import appeng.client.render.blocks.RenderBlockCraftingCPU;
@@ -7,7 +7,7 @@ import appeng.core.sync.GuiBridge;
 import appeng.tile.crafting.TileCraftingTile;
 import appeng.util.Platform;
 import com.ae.additions.AE2Addition;
-import com.ae.additions.common.tile.TileAAccelerators;
+import com.ae.additions.tile.TileAAccelerators;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

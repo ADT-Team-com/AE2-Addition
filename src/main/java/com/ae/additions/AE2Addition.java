@@ -4,12 +4,12 @@ import appeng.helpers.IInterfaceHost;
 import com.ae.additions.client.gui.GuiAdvancedInterface;
 import com.ae.additions.client.gui.GuiHybridInterface;
 import com.ae.additions.client.gui.GuiUltimateInterface;
-import com.ae.additions.common.container.ContainerAdvancedInterface;
-import com.ae.additions.common.container.ContainerHybridInterface;
-import com.ae.additions.common.container.ContainerUltimateInterface;
-import com.ae.additions.common.tile.TileAdvancedInterface;
-import com.ae.additions.common.tile.TileHybridInterface;
-import com.ae.additions.common.tile.TileUltimateInterface;
+import com.ae.additions.container.ContainerAdvancedInterface;
+import com.ae.additions.container.ContainerHybridInterface;
+import com.ae.additions.container.ContainerUltimateInterface;
+import com.ae.additions.tile.TileAdvancedInterface;
+import com.ae.additions.tile.TileHybridInterface;
+import com.ae.additions.tile.TileUltimateInterface;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -25,12 +25,12 @@ import net.minecraft.world.World;
 
 import static com.ae.additions.AE2Addition.*;
 
-@Mod(modid = MODID,name = MODNAME, version = VERSION, dependencies = DEPEND)
+@Mod(modid = MODID, name = MODNAME, version = VERSION, dependencies = DEPEND)
 public class AE2Addition {
     public static final String
             MODID = "ae2additions",
             MODNAME = "AE2-Additions",
-            VERSION = "1.0.1",
+            VERSION = "1.0.2",
             DEPEND = "required-after:appliedenergistics2;required-after:grimoire";
 
     public static final CreativeTabs AE2_ADDITION_TAB = new CreativeTabs("AE2-Additions") {
@@ -51,13 +51,10 @@ public class AE2Addition {
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
-
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-
-    }
+    public void postInit(FMLPostInitializationEvent e) {}
 
     public static class GuiHandler implements IGuiHandler {
 
@@ -76,7 +73,6 @@ public class AE2Addition {
                     if (tile instanceof TileUltimateInterface) {
                         return new ContainerUltimateInterface(player.inventory, (IInterfaceHost) tile);
                     }
-
             }
             return null;
         }
@@ -97,9 +93,7 @@ public class AE2Addition {
                     if (tile instanceof TileUltimateInterface) {
                         return new GuiUltimateInterface(player.inventory, (IInterfaceHost) tile);
                     }
-
             }
-
             return null;
         }
     }

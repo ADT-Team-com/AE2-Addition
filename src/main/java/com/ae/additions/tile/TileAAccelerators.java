@@ -1,8 +1,8 @@
-package com.ae.additions.common.tile;
+package com.ae.additions.tile;
 
 import appeng.tile.crafting.TileCraftingTile;
 import com.ae.additions.AAModBlocks;
-import com.ae.additions.common.utils.IAdvancedAccelerator;
+import com.ae.additions.utils.IAdvancedAccelerator;
 import net.minecraft.item.ItemStack;
 
 public class TileAAccelerators extends TileCraftingTile implements IAdvancedAccelerator {

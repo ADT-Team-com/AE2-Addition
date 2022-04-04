@@ -1,4 +1,4 @@
-package com.ae.additions.common.blocks;
+package com.ae.additions.blocks;
 
 import appeng.block.misc.BlockInterface;
 import appeng.client.render.blocks.RenderBlockInterface;
@@ -6,7 +6,7 @@ import appeng.core.features.AEFeature;
 import appeng.util.Platform;
 import com.ae.additions.AE2Addition;
 import com.ae.additions.client.render.RenderAdvancedBlockInterface;
-import com.ae.additions.common.tile.TileAdvancedInterface;
+import com.ae.additions.tile.TileAdvancedInterface;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

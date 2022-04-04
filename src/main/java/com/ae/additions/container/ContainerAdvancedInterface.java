@@ -1,4 +1,4 @@
-package com.ae.additions.common.container;
+package com.ae.additions.container;
 
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.Settings;
@@ -11,10 +11,10 @@ import appeng.container.slot.SlotNormal;
 import appeng.container.slot.SlotRestrictedInput;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
-import com.ae.additions.common.utils.TUltimateDualityInterface;
+import com.ae.additions.utils.TAdvancedDualityInterface;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class ContainerUltimateInterface extends ContainerUpgradeable {
+public class ContainerAdvancedInterface extends ContainerUpgradeable {
 
     private final DualityInterface myDuality;
 
@@ -24,33 +24,33 @@ public class ContainerUltimateInterface extends ContainerUpgradeable {
     @GuiSync(4)
     public YesNo iTermMode = YesNo.YES;
 
-    public ContainerUltimateInterface(final InventoryPlayer ip, final IInterfaceHost te) {
+    public ContainerAdvancedInterface(final InventoryPlayer ip, final IInterfaceHost te) {
         super(ip, te.getInterfaceDuality().getHost());
 
         this.myDuality = te.getInterfaceDuality();
 
-        for (int x = 0; x < TUltimateDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
+        for (int x = 0; x < TAdvancedDualityInterface.NUMBER_OF_PATTERN_SLOTS; x++) {
             int y = x / 9;
             this.addSlotToContainer(new SlotRestrictedInput(SlotRestrictedInput.PlacableItemType.ENCODED_PATTERN, this.myDuality.getPatterns(),
-                    x, 8 + 18 * x - 162 * y, 78 + 19 * y, this.getInventoryPlayer()));
+                    x, 8 + 18 * x - 162 * y, 97 + 18 * y, this.getInventoryPlayer()));
         }
 
         for (int x = 0; x < DualityInterface.NUMBER_OF_CONFIG_SLOTS; x++) {
-            this.addSlotToContainer(new SlotFake(this.myDuality.getConfig(), x, 8 + 18 * x, 16));
+            this.addSlotToContainer(new SlotFake(this.myDuality.getConfig(), x, 8 + 18 * x, 35));
         }
 
         for (int x = 0; x < DualityInterface.NUMBER_OF_STORAGE_SLOTS; x++) {
-            this.addSlotToContainer(new SlotNormal(this.myDuality.getStorage(), x, 8 + 18 * x, 16 + 18));
+            this.addSlotToContainer(new SlotNormal(this.myDuality.getStorage(), x, 8 + 18 * x, 35 + 18));
         }
     }
 
     protected void bindPlayerInventory(final InventoryPlayer inventoryPlayer, final int offsetX, final int offsetY) {
-        super.bindPlayerInventory(inventoryPlayer, offsetX, 211 - 44);//211 - 63
+        super.bindPlayerInventory(inventoryPlayer, offsetX, 147);//211 - 63
     }
 
     @Override
     protected int getHeight() {
-        return 250;
+        return 229;
     }
 
     @Override
@@ -90,5 +90,4 @@ public class ContainerUltimateInterface extends ContainerUpgradeable {
     private void setInterfaceTerminalMode(final YesNo iTermMode) {
         this.iTermMode = iTermMode;
     }
-
 }

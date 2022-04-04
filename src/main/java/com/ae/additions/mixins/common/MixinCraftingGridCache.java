@@ -5,7 +5,7 @@ import appeng.api.networking.IGridNode;
 import appeng.crafting.CraftingLink;
 import appeng.me.cache.CraftingGridCache;
 import appeng.me.cluster.implementations.CraftingCPUCluster;
-import com.ae.additions.common.tile.TileACraftingStorage;
+import com.ae.additions.tile.TileACraftingStorage;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
