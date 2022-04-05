@@ -41,6 +41,11 @@ public class BlockACraftingStorage extends BlockCraftingUnit {
         this.setFeature(EnumSet.of(AEFeature.CraftingCPU));
     }
 
+    @Override
+    public Class<ItemBlockACraftingStorage> getItemBlockClass() {
+        return ItemBlockACraftingStorage.class;
+    }
+
     @SideOnly(Side.CLIENT)
     protected RenderBlockCraftingCPU<? extends BlockCraftingUnit, ? extends TileCraftingTile> getRenderer() {
         return new RenderBlockCraftingCPU();
@@ -80,7 +85,7 @@ public class BlockACraftingStorage extends BlockCraftingUnit {
     }
 
     public int getDamageValue(World w, int x, int y, int z) {
-        final int meta = w.getBlockMetadata(x, y, z);
+        int meta = w.getBlockMetadata(x, y, z);
         return this.damageDropped(meta);
     }
 
@@ -98,30 +103,6 @@ public class BlockACraftingStorage extends BlockCraftingUnit {
             list.add(new ItemStack(item, 1, i));
         }
     }
-
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> r = new ArrayList();
-        if (world.getTileEntity(x, y, z) != null & world.getTileEntity(x, y, z) instanceof TileACraftingStorage) {
-            switch (((TileACraftingStorage) world.getTileEntity(x, y, z)).getStorageBytes()) {
-                case 262144:
-                    metadata = 0;
-                    break;
-                case 1048576:
-                    metadata = 1;
-                    break;
-                case 4194304:
-                    metadata = 2;
-                    break;
-                case 16777216:
-                    metadata = 3;
-                    break;
-            }
-        }
-        r.add(new ItemStack(this, 1, metadata));
-        return r;
-    }
-
 
     public IIcon getIcon(int side, int metadata) {
         switch (metadata & (~4)) {
