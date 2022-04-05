@@ -4,6 +4,8 @@
 .settings/*
 .metadata/*
 bin/*
+.mixin.out/*
+asm/*
 build/*
 run/*
 minecraft/*

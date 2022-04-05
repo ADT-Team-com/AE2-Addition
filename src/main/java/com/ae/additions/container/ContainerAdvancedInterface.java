@@ -11,10 +11,11 @@ import appeng.container.slot.SlotNormal;
 import appeng.container.slot.SlotRestrictedInput;
 import appeng.helpers.DualityInterface;
 import appeng.helpers.IInterfaceHost;
+import com.ae.additions.utils.IAdvInterface;
 import com.ae.additions.utils.TAdvancedDualityInterface;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public class ContainerAdvancedInterface extends ContainerUpgradeable {
+public class ContainerAdvancedInterface extends ContainerUpgradeable implements IAdvInterface {
 
     private final DualityInterface myDuality;
 

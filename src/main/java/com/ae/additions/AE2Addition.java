@@ -7,10 +7,12 @@ import com.ae.additions.client.gui.GuiUltimateInterface;
 import com.ae.additions.container.ContainerAdvancedInterface;
 import com.ae.additions.container.ContainerHybridInterface;
 import com.ae.additions.container.ContainerUltimateInterface;
+import com.ae.additions.proxy.CommonProxy;
 import com.ae.additions.tile.TileAdvancedInterface;
 import com.ae.additions.tile.TileHybridInterface;
 import com.ae.additions.tile.TileUltimateInterface;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -30,7 +32,7 @@ public class AE2Addition {
     public static final String
             MODID = "ae2additions",
             MODNAME = "AE2-Additions",
-            VERSION = "1.0.2",
+            VERSION = "1.1.0",
             DEPEND = "required-after:appliedenergistics2;required-after:grimoire";
 
     public static final CreativeTabs AE2_ADDITION_TAB = new CreativeTabs("AE2-Additions") {
@@ -40,21 +42,27 @@ public class AE2Addition {
         }
     };
 
+    @SidedProxy(clientSide = "com.ae.additions.proxy.ClientProxy", serverSide = "com.ae.additions.proxy.CommonProxy")
+    public static CommonProxy proxy;
+
     @Mod.Instance
     public static AE2Addition instance = new AE2Addition();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e) {
-        AAModBlocks.registerBlocks();
+        proxy.preInit(e);
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent e) {
+        proxy.init(e);
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     }
 
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {}
+    public void postInit(FMLPostInitializationEvent e) {
+        proxy.postInit(e);
+    }
 
     public static class GuiHandler implements IGuiHandler {
 

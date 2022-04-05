@@ -3,13 +3,14 @@ package com.ae.additions.blocks;
 import appeng.core.features.AEFeature;
 import appeng.util.Platform;
 import com.ae.additions.AE2Addition;
+import com.ae.additions.proxy.CommonProxy;
 import com.ae.additions.tile.TileUltimateInterface;
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.EnumSet;
 
@@ -35,7 +36,7 @@ public class BlockUltimateInterface extends BlockHybridInterface {
         TileUltimateInterface tg = this.getTileEntity(w, x, y, z);
         if (tg != null) {
             if (Platform.isServer()) {
-                FMLNetworkHandler.openGui(p, AE2Addition.instance, 2, w, x, y, z);
+                Platform.openGUI(p, tg, ForgeDirection.getOrientation(side), CommonProxy.getGuiUltimateInterface());
             }
             return true;
         }

@@ -65,6 +65,11 @@ processResources {
 
 jar {
 	exclude "appeng"
+	manifest {
+		attributes 'FMLCorePlugin': 'com.ae.additions.asm.AACoreMod'
+		attributes 'FMLCorePluginContainsFMLMod': 'true'
+		attributes "ForceLoadAsMod": "true"
+	}
 }
 
 task devJar(type: Jar) {

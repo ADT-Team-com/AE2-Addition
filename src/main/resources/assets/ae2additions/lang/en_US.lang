@@ -1,13 +1,17 @@
 itemGroup.AE2-Additions=AE2-Additions
-tile.block_crafting_storage256k.name=256k хранилище создания
-tile.block_crafting_storage1024k.name=1024k хранилище создания
-tile.block_crafting_storage4096k.name=4096k хранилище создания
-tile.block_crafting_storage16384k.name=16384k хранилище создания
+tile.block_crafting_storage256k.name=256k Crafting Storage
+tile.block_crafting_storage1024k.name=1024k Crafting Storage
+tile.block_crafting_storage4096k.name=4096k Crafting Storage
+tile.block_crafting_storage16384k.name=16384k Crafting Storage
 
-tile.advanced_interface.name=Улучшенный МЭ интерфейс
-tile.hybrid_interface.name=Гибридный МЭ интерфейс
-tile.ultimate_interface.name=Совершенный МЭ интерфейс
+tile.advanced_interface.name=Advanced ME Interface
+tile.hybrid_interface.name=Hybrid ME Interface
+tile.ultimate_interface.name=Ultimate ME Interface
 
-tile.advanced_crafting_accelerator.name=Улучшенный блок обработки создания
-tile.hybrid_crafting_accelerator.name=Гибридный блок обработки создания
-tile.ultimate_crafting_accelerator.name=Совершенный блок обработки создания
+tile.advanced_crafting_accelerator.name=Advanced Crafting Co-Processing Unit
+tile.hybrid_crafting_accelerator.name=Hybrid Crafting Co-Processing Unit
+tile.ultimate_crafting_accelerator.name=Ultimate Crafting Co-Processing Unit
+
+item.part_adv_interface.name=Advanced ME Interface
+item.part_hybrid_interface.name=Hybrid ME Interface
+item.part_ultimate_interface.name=Ultimate ME Interface

@@ -11,13 +11,13 @@ anaglyph3d:false
 advancedOpengl:false
 maxFps:120
 fboEnable:true
-difficulty:2
+difficulty:0
 fancyGraphics:true
 ao:2
 clouds:true
 resourcePacks:[]
 lastServer:
-lang:en_US
+lang:ru_RU
 chatVisibility:0
 chatColors:true
 chatLinks:true

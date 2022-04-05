@@ -30,7 +30,7 @@ public class TileAAccelerators extends TileCraftingTile implements IAdvancedAcce
         switch (this.worldObj.getBlockMetadata(this.xCoord, this.yCoord, this.zCoord) & 3) {
             default:
             case 0:
-                return 1 * 4;
+                return 4;
             case 1:
                 return 4 * 4;
             case 2:
