@@ -31,8 +31,6 @@ import appeng.util.Platform;
 import appeng.util.inv.IInventoryDestination;
 import com.ae.additions.AAModItems;
 import com.ae.additions.proxy.CommonProxy;
-import com.ae.additions.utils.TAdvancedDualityInterface;
-import com.ae.additions.utils.THybridDualityInterface;
 import com.ae.additions.utils.TUltimateDualityInterface;
 import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.relauncher.Side;
@@ -198,7 +196,6 @@ public class PartUltimateInterface extends PartBasicState implements IGridTickab
 
         return true;
     }
-
 
 
     @Override

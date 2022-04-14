@@ -8,7 +8,6 @@ import appeng.me.GridAccessException;
 import appeng.me.helpers.AENetworkProxy;
 import appeng.tile.inventory.AppEngInternalInventory;
 import appeng.tile.inventory.InvOperation;
-import com.ae.additions.mixins.common.MixinDualityInterfaceAccessor;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,7 +16,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class TUltimateDualityInterface extends DualityInterface implements ITDualityInterface {
+public class TUltimateDualityInterface extends DualityInterface implements IDualityInterface {
 
     public static final int NUMBER_OF_PATTERN_SLOTS = 36;
     private final AppEngInternalInventory patterns = new AppEngInternalInventory(this, NUMBER_OF_PATTERN_SLOTS);
@@ -28,27 +27,26 @@ public class TUltimateDualityInterface extends DualityInterface implements ITDua
 
     @Override
     public void onChangeInventory(IInventory inv, int slot, InvOperation mc, ItemStack removed, ItemStack added) {
-        MixinDualityInterfaceAccessor accessor = (MixinDualityInterfaceAccessor) this;
-        if (accessor.getIsWorking()) {
+        if (this.getIsWorking()) {
             return;
         }
         if (inv == this.getConfig()) {
-            accessor.callReadConfig();
+            this.callReadConfig();
         } else if (inv == this.patterns && (removed != null || added != null)) {
-            accessor.callUpdateCraftingList();
+            this.callUpdateCraftingList();
         } else if (inv == this.getStorage() && slot >= 0) {
-            final boolean had = accessor.callHasWorkToDo();
+            final boolean had = this.callHasWorkToDo();
 
-            accessor.callUpdatePlan(slot);
+            this.callUpdatePlan(slot);
 
-            final boolean now = accessor.callHasWorkToDo();
+            final boolean now = this.callHasWorkToDo();
 
             if (had != now) {
                 try {
                     if (now) {
-                        accessor.getProxy().getTick().alertDevice(accessor.getProxy().getNode());
+                        this.getProxy().getTick().alertDevice(this.getProxy().getNode());
                     } else {
-                        accessor.getProxy().getTick().sleepDevice(accessor.getProxy().getNode());
+                        this.getProxy().getTick().sleepDevice(this.getProxy().getNode());
                     }
                 } catch (final GridAccessException e) {
                     // :P
@@ -93,7 +91,7 @@ public class TUltimateDualityInterface extends DualityInterface implements ITDua
     }
 
     @Override
-    public boolean iOverrideDefault() {
+    public boolean isOverrideDefault() {
         return true;
     }
 
@@ -104,12 +102,12 @@ public class TUltimateDualityInterface extends DualityInterface implements ITDua
 
         assert (accountedFor.length == this.patterns.getSizeInventory());
 
-        if (!((MixinDualityInterfaceAccessor) this).getProxy().isReady()) {
+        if (!this.getProxy().isReady()) {
             return;
         }
 
-        if (((MixinDualityInterfaceAccessor) this).getCraftingList() != null) {
-            final Iterator<ICraftingPatternDetails> i = ((MixinDualityInterfaceAccessor) this).getCraftingList().iterator();
+        if (this.getCraftingList() != null) {
+            final Iterator<ICraftingPatternDetails> i = this.getCraftingList().iterator();
             while (i.hasNext()) {
                 final ICraftingPatternDetails details = i.next();
                 boolean found = false;
@@ -129,12 +127,12 @@ public class TUltimateDualityInterface extends DualityInterface implements ITDua
 
         for (int x = 0; x < accountedFor.length; x++) {
             if (!accountedFor[x]) {
-                ((MixinDualityInterfaceAccessor) this).callAddToCraftingList(this.patterns.getStackInSlot(x));
+                this.callAddToCraftingList(this.patterns.getStackInSlot(x));
             }
         }
 
         try {
-            AENetworkProxy proxy = ((MixinDualityInterfaceAccessor) this).getProxy();
+            AENetworkProxy proxy = this.getProxy();
             proxy.getGrid().postEvent(new MENetworkCraftingPatternChange(this, proxy.getNode()));
         } catch (final GridAccessException e) {
             // :P

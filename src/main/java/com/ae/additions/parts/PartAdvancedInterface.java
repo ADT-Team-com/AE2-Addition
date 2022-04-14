@@ -198,7 +198,6 @@ public class PartAdvancedInterface extends PartBasicState implements IGridTickab
     }
 
 
-
     @Override
     public IIcon getBreakingTexture() {
         return this.getItemStack().getIconIndex();

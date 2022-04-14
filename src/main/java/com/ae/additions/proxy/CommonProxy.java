@@ -1,8 +1,6 @@
 package com.ae.additions.proxy;
 
-import appeng.api.AEApi;
 import appeng.api.config.SecurityPermissions;
-import appeng.api.storage.ITerminalHost;
 import appeng.client.texture.CableBusTextures;
 import appeng.core.sync.GuiBridge;
 import appeng.core.sync.GuiHostType;

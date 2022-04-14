@@ -31,7 +31,6 @@ import appeng.util.Platform;
 import appeng.util.inv.IInventoryDestination;
 import com.ae.additions.AAModItems;
 import com.ae.additions.proxy.CommonProxy;
-import com.ae.additions.utils.TAdvancedDualityInterface;
 import com.ae.additions.utils.THybridDualityInterface;
 import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.relauncher.Side;
@@ -197,7 +196,6 @@ public class PartHybridInterface extends PartBasicState implements IGridTickable
 
         return true;
     }
-
 
 
     @Override
