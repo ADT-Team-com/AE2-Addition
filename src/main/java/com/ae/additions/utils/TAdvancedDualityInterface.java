@@ -26,6 +26,7 @@ public class TAdvancedDualityInterface extends DualityInterface implements IDual
 
     @Override
     public void onChangeInventory(IInventory inv, int slot, InvOperation mc, ItemStack removed, ItemStack added) {
+        //if (this.getIsWorking() == slot) {
         if (this.getIsWorking()) {
             return;
         }

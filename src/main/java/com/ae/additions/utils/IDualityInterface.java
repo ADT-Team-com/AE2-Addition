@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface IDualityInterface {
 
-    default void updateCraftingListProxy() {}
+    default void updateCraftingListProxy() {
+    }
 
     default boolean isOverrideDefault() {
         return false;
@@ -26,13 +27,17 @@ public interface IDualityInterface {
         return false;
     }
 
-    default void callAddToCraftingList(ItemStack is) {}
+    default void callAddToCraftingList(ItemStack is) {
+    }
 
-    default void callReadConfig() {}
+    default void callReadConfig() {
+    }
 
-    default void callUpdateCraftingList() {}
+    default void callUpdateCraftingList() {
+    }
 
-    default void callUpdatePlan(int slot) {}
+    default void callUpdatePlan(int slot) {
+    }
 
     default boolean callHasWorkToDo() {
         return false;
