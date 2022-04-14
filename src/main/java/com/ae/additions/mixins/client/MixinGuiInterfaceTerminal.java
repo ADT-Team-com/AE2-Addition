@@ -44,6 +44,7 @@ public abstract class MixinGuiInterfaceTerminal extends AEBaseGui {
     @Shadow
     private MEGuiTextField searchField;
     private int overSize = 0;
+    private final HashMap<Integer, Integer> counts = new HashMap<>();
 
 
     public MixinGuiInterfaceTerminal(Container container) {
@@ -96,6 +97,9 @@ public abstract class MixinGuiInterfaceTerminal extends AEBaseGui {
             int size = data.hasKey("invSize") ? data.getInteger("invSize") : 9;
             if (size % 9 == 0) {
                 overSize += size / 9 - 1;
+                int count = counts.getOrDefault(size / 9, 0);
+                count++;
+                counts.put(size / 9, count);
                 // System.out.println("size = " + size);
             }
             long sortBy = data.getLong("sortBy");
@@ -201,6 +205,14 @@ public abstract class MixinGuiInterfaceTerminal extends AEBaseGui {
 
     @Inject(method = "refreshList", at = @At("TAIL"))
     private void refreshListMixin(CallbackInfo ci) {
-        this.getScrollBar().setRange(0, this.lines.size() + overSize - LINES_ON_PAGE, 2);
+        int size = 0;
+        int unused = 0;
+        for (Map.Entry<Integer, Integer> entry : counts.entrySet()) {
+            int c = (int) Math.ceil((entry.getKey() * entry.getValue()) / 3.0);
+            unused += c * 3 - entry.getKey() * entry.getValue();
+            size += c;
+        }
+        size -= unused / 3;
+        this.getScrollBar().setRange(0, size, 2);
     }
 }

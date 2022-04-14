@@ -24,6 +24,7 @@ public class TileAAccelerators extends TileCraftingTile implements IAdvancedAcce
         }
         return super.getItemFromTile(obj);
     }
+
     @Override
     public int getAcceleratorCount() {
         if (worldObj == null || this.notLoaded() || this.isInvalid()) return 0;

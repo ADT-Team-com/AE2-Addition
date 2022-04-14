@@ -3,9 +3,10 @@ package com.ae.additions.asm;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
+
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 @IFMLLoadingPlugin.TransformerExclusions({"com.ae.additions.asm"})
-public class AACoreMod implements IFMLLoadingPlugin{
+public class AACoreMod implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {
         return new String[]{

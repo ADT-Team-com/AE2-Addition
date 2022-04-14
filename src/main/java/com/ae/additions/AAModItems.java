@@ -16,6 +16,6 @@ public class AAModItems {
         item.setCreativeTab(AE2Addition.AE2_ADDITION_TAB);
         GameRegistry.registerItem(item, item.getUnlocalizedName());
     }
-    
-    
+
+
 }

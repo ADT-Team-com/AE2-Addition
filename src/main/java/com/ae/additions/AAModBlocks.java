@@ -36,7 +36,7 @@ public class AAModBlocks {
         GameRegistry.registerBlock(block, block.getUnlocalizedName());
     }
 
-    public static void registerBlock(Block block,  Class<? extends ItemBlock> itemBlock) {
+    public static void registerBlock(Block block, Class<? extends ItemBlock> itemBlock) {
         block.setCreativeTab(AE2Addition.AE2_ADDITION_TAB);
         GameRegistry.registerBlock(block, itemBlock, block.getUnlocalizedName());
     }

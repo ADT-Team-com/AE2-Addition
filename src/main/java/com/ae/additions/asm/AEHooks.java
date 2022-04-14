@@ -1,13 +1,19 @@
 package com.ae.additions.asm;
 
+import appeng.api.networking.IMachineSet;
 import appeng.core.sync.GuiBridge;
+import appeng.me.Grid;
+import appeng.me.MachineSet;
+import appeng.parts.misc.PartInterface;
+import appeng.tile.crafting.TileCraftingStorageTile;
+import appeng.tile.misc.TileInterface;
 import com.ae.additions.AAModBlocks;
-import com.ae.additions.AAModItems;
 import com.ae.additions.parts.EnumParts;
 import com.ae.additions.parts.PartAdvancedInterface;
 import com.ae.additions.parts.PartHybridInterface;
 import com.ae.additions.parts.PartUltimateInterface;
 import com.ae.additions.proxy.CommonProxy;
+import com.ae.additions.tile.TileACraftingStorage;
 import com.ae.additions.tile.TileAdvancedInterface;
 import com.ae.additions.tile.TileHybridInterface;
 import com.ae.additions.tile.TileUltimateInterface;
@@ -47,6 +53,29 @@ public class AEHooks {
         if (target instanceof TileUltimateInterface || target instanceof PartUltimateInterface) {
             return CommonProxy.getGuiUltimateInterface();
         }
+        return old;
+    }
+
+    public static IMachineSet getMachines(MachineSet old, Grid grid) {
+        if (old.getMachineClass() == TileInterface.class) {
+            MachineSet set = (MachineSet) grid.getMachines(TileAdvancedInterface.class);
+            MachineSet set1 = (MachineSet) grid.getMachines(TileHybridInterface.class);
+            MachineSet set2 = (MachineSet) grid.getMachines(TileUltimateInterface.class);
+            old.addAll(set);
+            old.addAll(set1);
+            old.addAll(set2);
+        } else if (old.getMachineClass() == PartInterface.class) {
+            MachineSet set = (MachineSet) grid.getMachines(PartAdvancedInterface.class);
+            MachineSet set1 = (MachineSet) grid.getMachines(PartHybridInterface.class);
+            MachineSet set2 = (MachineSet) grid.getMachines(PartUltimateInterface.class);
+            old.addAll(set);
+            old.addAll(set1);
+            old.addAll(set2);
+        } else if (old.getMachineClass() == TileCraftingStorageTile.class) {
+            MachineSet set = (MachineSet) grid.getMachines(TileACraftingStorage.class);
+            old.addAll(set);
+        }
+        Class c = old.getMachineClass();
         return old;
     }
 }
