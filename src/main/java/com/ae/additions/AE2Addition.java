@@ -18,7 +18,7 @@ public class AE2Addition {
             MODID = "ae2additions",
             MODNAME = "AE2-Additions",
             VERSION = "1.1.3",
-            DEPEND = "required-after:appliedenergistics2;required-after:grimoire";
+            DEPEND = "required-after:appliedenergistics2;";
 
     public static final CreativeTabs AE2_ADDITION_TAB = new CreativeTabs("AE2-Additions") {
         @Override
