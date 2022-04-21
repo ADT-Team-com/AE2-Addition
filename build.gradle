@@ -90,13 +90,13 @@ artifacts {
 }
 
 
-def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + "mixins.srg"
+//def mixinSrg = "${tasks.reobf.temporaryDir}" + File.separator + "mixins.srg"
 
 reobf {
-	addExtraSrgFile mixinSrg
+//	addExtraSrgFile mixinSrg
 }
 
 
 afterEvaluate {
-	tasks.compileJava.options.compilerArgs += ["-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}"]
+//	tasks.compileJava.options.compilerArgs += ["-AreobfSrgFile=${tasks.reobf.srg}", "-AoutSrgFile=${mixinSrg}"]
 }
