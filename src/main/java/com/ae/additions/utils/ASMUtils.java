@@ -184,4 +184,10 @@ public class ASMUtils {
         list.add(new InsnNode(retOpcode));
         return node;
     }
+
+    public static InsnList copy(InsnList list) {
+        MethodNode node = new MethodNode();
+        list.accept(node);
+        return node.instructions;
+    }
 }

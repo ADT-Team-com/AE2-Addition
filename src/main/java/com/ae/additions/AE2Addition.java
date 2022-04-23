@@ -17,7 +17,7 @@ public class AE2Addition {
     public static final String
             MODID = "ae2additions",
             MODNAME = "AE2-Additions",
-            VERSION = "1.2.0",
+            VERSION = "1.2.1",
             DEPEND = "required-after:appliedenergistics2;";
 
     public static final CreativeTabs AE2_ADDITION_TAB = new CreativeTabs("AE2-Additions") {

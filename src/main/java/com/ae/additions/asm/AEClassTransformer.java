@@ -71,7 +71,7 @@ public class AEClassTransformer implements IClassTransformer {
         InsnList list = new InsnList();
         list.add(new VarInsnNode(ALOAD, 0));
         list.add(new MethodInsnNode(INVOKESTATIC, "com/ae/additions/asm/AEHooks", "getMachines", "(Lappeng/me/MachineSet;Lappeng/me/Grid;)Lappeng/api/networking/IMachineSet;", false));
-        points.forEach(point -> methodNode.instructions.insertBefore(point, list));
+        points.forEach(point -> methodNode.instructions.insertBefore(point, copy(list)));
         return writeClass(classNode);
     }
 
@@ -208,7 +208,7 @@ public class AEClassTransformer implements IClassTransformer {
         InsnList list = new InsnList();
         list.add(new VarInsnNode(ALOAD,0));
         list.add(new MethodInsnNode(INVOKESPECIAL, "appeng/client/gui/implementations/GuiInterfaceTerminal", "refreshListMixin", "()V", false));
-        points.forEach(point -> methodNode.instructions.insertBefore(point, list));
+        points.forEach(point -> methodNode.instructions.insertBefore(point, copy(list)));
         classNode.fields.add(new FieldNode(ACC_PRIVATE | ACC_FINAL, "counts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Integer;>;", null));
         ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
         MethodVisitor methodVisitor;
@@ -1250,7 +1250,7 @@ public class AEClassTransformer implements IClassTransformer {
         listC.add(new InsnNode(DUP));
         listC.add(new MethodInsnNode(INVOKESPECIAL ,"java/util/HashMap", "<init>", "()V", false));
         listC.add(new FieldInsnNode(PUTFIELD, "appeng/client/gui/implementations/GuiInterfaceTerminal", "counts", "Ljava/util/HashMap;"));
-        pointsC.forEach(point -> methodNodeC.instructions.insertBefore(point, listC));
+        pointsC.forEach(point -> methodNodeC.instructions.insertBefore(point, copy(listC)));
 
         return writeClass(classNode);
     }
