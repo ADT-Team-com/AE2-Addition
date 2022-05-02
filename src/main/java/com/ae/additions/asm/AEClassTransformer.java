@@ -5,14 +5,9 @@ import net.minecraft.launchwrapper.Launch;
 import org.objectweb.asm.*;
 import org.objectweb.asm.tree.*;
 
-import java.io.File;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.OpenOption;
-import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-import static com.ae.additions.utils.ASMUtils.*;
+import static com.ae.additions.utils.asm.ASMUtils.*;
 import static org.objectweb.asm.Opcodes.*;
 
 public class AEClassTransformer implements IClassTransformer {
@@ -72,6 +67,27 @@ public class AEClassTransformer implements IClassTransformer {
         list.add(new VarInsnNode(ALOAD, 0));
         list.add(new MethodInsnNode(INVOKESTATIC, "com/ae/additions/asm/AEHooks", "getMachines", "(Lappeng/me/MachineSet;Lappeng/me/Grid;)Lappeng/api/networking/IMachineSet;", false));
         points.forEach(point -> methodNode.instructions.insertBefore(point, copy(list)));
+
+        MethodNode generated = new MethodNode(ACC_PUBLIC, "getMachinesSafe", "(Ljava/lang/Class;)Lappeng/api/networking/IMachineSet;", null, null);
+        LabelNode label = new LabelNode();
+        InsnList l = generated.instructions;
+        l.add(new VarInsnNode(ALOAD, 0));
+        l.add(new FieldInsnNode(GETFIELD, "appeng/me/Grid", "machines", "Ljava/util/Map;"));
+        l.add(new VarInsnNode(ALOAD, 1));
+        l.add(new MethodInsnNode(INVOKEINTERFACE, "java/util/Map", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", true));
+        l.add(new TypeInsnNode(CHECKCAST, "appeng/me/MachineSet"));
+        l.add(new VarInsnNode(ASTORE, 2));
+        l.add(new VarInsnNode(ALOAD, 2));
+        l.add(new JumpInsnNode(IFNONNULL, label));
+        l.add(new TypeInsnNode(NEW, "appeng/me/MachineSet"));
+        l.add(new InsnNode(DUP));
+        l.add(new VarInsnNode(ALOAD, 1));
+        l.add(new MethodInsnNode(INVOKESPECIAL, "appeng/me/MachineSet", "<init>", "(Ljava/lang/Class;)V", false));
+        l.add(new InsnNode(ARETURN));
+        l.add(label);
+        l.add(new VarInsnNode(ALOAD, 2));
+        l.add(new InsnNode(ARETURN));
+        classNode.methods.add(generated);
         return writeClass(classNode);
     }
 
@@ -195,6 +211,10 @@ public class AEClassTransformer implements IClassTransformer {
                 return transformTileInterface(basicClass);
             case "appeng.client.gui.implementations.GuiInterfaceTerminal":
                 return transformGuiInterfaceTerminal(basicClass);
+            case "appeng.me.NetworkEventBus":
+                return transformNetworkEventBus(basicClass);
+            case "appeng.me.MachineSet":
+                return transformMachineSet(basicClass);
         }
         return basicClass;
     }
@@ -1200,12 +1220,15 @@ public class AEClassTransformer implements IClassTransformer {
             methodVisitor.visitLabel(label4);
             methodVisitor.visitLineNumber(210, label4);
             methodVisitor.visitFrame(Opcodes.F_CHOP, 1, null, 0, null);
-            methodVisitor.visitVarInsn(ILOAD, 2);
+            /*methodVisitor.visitVarInsn(ILOAD, 2);
             methodVisitor.visitVarInsn(ILOAD, 3);
-            //methodVisitor.visitInsn(ICONST_3);
-            //methodVisitor.visitInsn(IDIV);
+            methodVisitor.visitInsn(ICONST_2);
+            methodVisitor.visitInsn(IDIV);
+            methodVisitor.visitInsn(ISUB);
+            methodVisitor.visitInsn(ICONST_2);
             methodVisitor.visitInsn(ISUB);
             methodVisitor.visitVarInsn(ISTORE, 2);
+            methodVisitor.visitInsn(POP);*/
             Label label9 = new Label();
             methodVisitor.visitLabel(label9);
             methodVisitor.visitLineNumber(211, label9);
@@ -1213,6 +1236,10 @@ public class AEClassTransformer implements IClassTransformer {
             methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "appeng/client/gui/AEBaseGui", "getScrollBar", "()Lappeng/client/gui/widgets/GuiScrollbar;", false);
             methodVisitor.visitInsn(ICONST_0);
             methodVisitor.visitVarInsn(ILOAD, 2);
+            methodVisitor.visitVarInsn(ALOAD, 0);
+            methodVisitor.visitFieldInsn(GETFIELD, "appeng/client/gui/implementations/GuiInterfaceTerminal", "names", "Ljava/util/ArrayList;");
+            methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "java/util/ArrayList", "size", "()I", false);
+            methodVisitor.visitInsn(IADD);
             methodVisitor.visitInsn(ICONST_2);
             methodVisitor.visitMethodInsn(INVOKEVIRTUAL, "appeng/client/gui/widgets/GuiScrollbar", "setRange", "(III)V", false);
             Label label10 = new Label();
@@ -1252,6 +1279,35 @@ public class AEClassTransformer implements IClassTransformer {
         listC.add(new FieldInsnNode(PUTFIELD, "appeng/client/gui/implementations/GuiInterfaceTerminal", "counts", "Ljava/util/HashMap;"));
         pointsC.forEach(point -> methodNodeC.instructions.insertBefore(point, copy(listC)));
 
+        return writeClass(classNode);
+    }
+
+    private static byte[] transformNetworkEventBus(byte[] basicClass) {
+        ClassNode classNode = readClass(basicClass);
+        MethodNode methodNode = findMethod(classNode, "postEvent");
+        if(methodNode == null) return basicClass;
+        for (AbstractInsnNode node : methodNode.instructions.toArray()) {
+            if(node.getType() == AbstractInsnNode.METHOD_INSN && node.getOpcode() == INVOKEVIRTUAL) {
+                MethodInsnNode methodInsnNode = (MethodInsnNode) node;
+                if(methodInsnNode.owner.equals("appeng/me/Grid") && methodInsnNode.name.equals("getMachines")) {
+                    methodInsnNode.name = "getMachinesSafe";
+                }
+            }
+        }
+        return writeClass(classNode);
+    }
+
+    private static byte[] transformMachineSet(byte[] basicClass) {
+        ClassNode classNode = readClass(basicClass);
+        classNode.interfaces.add("com/ae/additions/utils/IMachineSetAccessor");
+        MethodNode generated = new MethodNode(ACC_PUBLIC, "create", "(Ljava/lang/Class;)Lappeng/me/MachineSet;", null, null);
+        InsnList list = generated.instructions;
+        list.add(new TypeInsnNode(NEW, "appeng/me/MachineSet"));
+        list.add(new InsnNode(DUP));
+        list.add(new VarInsnNode(ALOAD, 1));
+        list.add(new MethodInsnNode(INVOKESPECIAL, "appeng/me/MachineSet", "<init>", "(Ljava/lang/Class;)V", false));
+        list.add(new InsnNode(ARETURN));
+        classNode.methods.add(generated);
         return writeClass(classNode);
     }
 }

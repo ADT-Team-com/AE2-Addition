@@ -9,13 +9,7 @@ public class AAModItems {
     public static ItemParts ITEM_PARTS = new ItemParts();
 
     public static void registerItems() {
-        registerItem(ITEM_PARTS);
+        GameRegistry.registerItem(ITEM_PARTS, "apart");
     }
-
-    public static void registerItem(Item item) {
-        item.setCreativeTab(AE2Addition.AE2_ADDITION_TAB);
-        GameRegistry.registerItem(item, item.getUnlocalizedName());
-    }
-
 
 }

@@ -17,6 +17,7 @@ import com.ae.additions.tile.TileACraftingStorage;
 import com.ae.additions.tile.TileAdvancedInterface;
 import com.ae.additions.tile.TileHybridInterface;
 import com.ae.additions.tile.TileUltimateInterface;
+import com.ae.additions.utils.IMachineSetAccessor;
 import net.minecraft.item.ItemStack;
 
 public class AEHooks {
@@ -58,6 +59,9 @@ public class AEHooks {
 
     public static IMachineSet getMachines(MachineSet old, Grid grid) {
         if (old.getMachineClass() == TileInterface.class) {
+            MachineSet n = ((IMachineSetAccessor)old).create(old.getMachineClass());
+            n.addAll(old);
+            old = n;
             MachineSet set = (MachineSet) grid.getMachines(TileAdvancedInterface.class);
             MachineSet set1 = (MachineSet) grid.getMachines(TileHybridInterface.class);
             MachineSet set2 = (MachineSet) grid.getMachines(TileUltimateInterface.class);
@@ -65,6 +69,9 @@ public class AEHooks {
             old.addAll(set1);
             old.addAll(set2);
         } else if (old.getMachineClass() == PartInterface.class) {
+            MachineSet n = ((IMachineSetAccessor)old).create(old.getMachineClass());
+            n.addAll(old);
+            old = n;
             MachineSet set = (MachineSet) grid.getMachines(PartAdvancedInterface.class);
             MachineSet set1 = (MachineSet) grid.getMachines(PartHybridInterface.class);
             MachineSet set2 = (MachineSet) grid.getMachines(PartUltimateInterface.class);
@@ -72,10 +79,12 @@ public class AEHooks {
             old.addAll(set1);
             old.addAll(set2);
         } else if (old.getMachineClass() == TileCraftingStorageTile.class) {
+            MachineSet n = ((IMachineSetAccessor)old).create(old.getMachineClass());
+            n.addAll(old);
+            old = n;
             MachineSet set = (MachineSet) grid.getMachines(TileACraftingStorage.class);
             old.addAll(set);
         }
-        Class c = old.getMachineClass();
         return old;
     }
 }
