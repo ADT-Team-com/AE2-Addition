@@ -17,6 +17,8 @@ public class TileACraftingStorage extends TileCraftingStorageTile {
     protected ItemStack getItemFromTile(Object obj) {
         int storage = ((TileCraftingTile) obj).getStorageBytes() / KILO_SCALAR;
         switch (storage) {
+            case 256:
+                return new ItemStack(AAModBlocks.A_CRAFTING_STORAGE, 1, 0);
             case 1024:
                 return new ItemStack(AAModBlocks.A_CRAFTING_STORAGE, 1, 1);
             case 4096:
