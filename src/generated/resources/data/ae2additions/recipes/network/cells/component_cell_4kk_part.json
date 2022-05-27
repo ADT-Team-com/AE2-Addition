@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aba",
+    "cdc",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:netherite_block"
+    },
+    "b": {
+      "item": "ae2:calculation_processor"
+    },
+    "c": {
+      "item": "ae2additions:cell_component_1kk"
+    },
+    "d": {
+      "item": "ae2:quartz_glass"
+    }
+  },
+  "result": {
+    "item": "ae2additions:cell_component_4kk"
+  }
+}

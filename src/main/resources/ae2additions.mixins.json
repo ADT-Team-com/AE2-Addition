@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8.3",
+  "package": "appeng.additions.mixins",
+  "refmap": "ae2additions.refmap.json",
+  "compatibilityLevel": "JAVA_11",
+  "mixins": [
+    "MixinBasicCellInventory"
+  ],
+  "client": [],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

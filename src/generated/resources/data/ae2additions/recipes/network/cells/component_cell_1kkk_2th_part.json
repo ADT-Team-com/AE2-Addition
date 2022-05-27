@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aba",
+    "cdc",
+    "aca"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:controller"
+    },
+    "b": {
+      "item": "ae2:singularity"
+    },
+    "c": {
+      "item": "ae2additions:cell_component_1kkk_1th"
+    },
+    "d": {
+      "item": "ae2:quartz_glass"
+    }
+  },
+  "result": {
+    "item": "ae2additions:cell_component_1kkk_2th"
+  }
+}
