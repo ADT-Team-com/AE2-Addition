@@ -143,13 +143,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.DIAMOND_BLOCK)
                 .define('d', CELL_COMPONENT_1KK.get())
                 .unlockedBy("has_cell_component_1kk", has(CELL_COMPONENT_1KK.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kk"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kk"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_1KK.get())
                 .requires(ITEM_ADVANCED_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_1KK.get())
                 .unlockedBy("has_cell_component_1kk", has(CELL_COMPONENT_1KK.get()))
                 .unlockedBy("has_item_advanced_cell_housing", has(ITEM_ADVANCED_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kk_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kk_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_4KK.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -159,13 +159,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.DIAMOND_BLOCK)
                 .define('d', CELL_COMPONENT_4KK.get())
                 .unlockedBy("has_cell_component_4kk", has(CELL_COMPONENT_4KK.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_4kk"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_4kk"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_4KK.get())
                 .requires(ITEM_ADVANCED_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_4KK.get())
                 .unlockedBy("has_cell_component_4kk", has(CELL_COMPONENT_4KK.get()))
                 .unlockedBy("has_item_advanced_cell_housing", has(ITEM_ADVANCED_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_4kk_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_4kk_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_16KK.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -175,13 +175,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.DIAMOND_BLOCK)
                 .define('d', CELL_COMPONENT_16KK.get())
                 .unlockedBy("has_cell_component_16kk", has(CELL_COMPONENT_16KK.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_16kk"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_16kk"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_16KK.get())
                 .requires(ITEM_ADVANCED_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_16KK.get())
                 .unlockedBy("has_cell_component_16kk", has(CELL_COMPONENT_16KK.get()))
                 .unlockedBy("has_item_advanced_cell_housing", has(ITEM_ADVANCED_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_16kk_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_16kk_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_64KK.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -191,13 +191,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.DIAMOND_BLOCK)
                 .define('d', CELL_COMPONENT_64KK.get())
                 .unlockedBy("has_cell_component_64kk", has(CELL_COMPONENT_64KK.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_64kk"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_64kk"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_64KK.get())
                 .requires(ITEM_ADVANCED_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_64KK.get())
                 .unlockedBy("has_cell_component_64kk", has(CELL_COMPONENT_64KK.get()))
                 .unlockedBy("has_item_advanced_cell_housing", has(ITEM_ADVANCED_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_64kk_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_64kk_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_256KK.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -207,13 +207,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.DIAMOND_BLOCK)
                 .define('d', CELL_COMPONENT_256KK.get())
                 .unlockedBy("has_cell_component_256kk", has(CELL_COMPONENT_256KK.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_256kk"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_256kk"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_256KK.get())
                 .requires(ITEM_ADVANCED_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_256KK.get())
                 .unlockedBy("has_cell_component_256kk", has(CELL_COMPONENT_256KK.get()))
                 .unlockedBy("has_item_advanced_cell_housing", has(ITEM_ADVANCED_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_256kk_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_256kk_storage"));
 
         ShapedRecipeBuilder.shaped(ITEM_CELL_1KKK_1th.get())
                 .pattern("aba")
@@ -224,13 +224,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.NETHERITE_BLOCK)
                 .define('d', CELL_COMPONENT_1KKK_1th.get())
                 .unlockedBy("has_cell_component_1kkk_1th", has(CELL_COMPONENT_1KKK_1th.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_1th"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_1th"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_1KKK_1th.get())
                 .requires(ITEM_ULTIMATE_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_1KKK_1th.get())
                 .unlockedBy("has_cell_component_1kkk_1th", has(CELL_COMPONENT_1KKK_1th.get()))
                 .unlockedBy("has_item_ultimate_cell_housing", has(ITEM_ULTIMATE_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_1th_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_1th_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_1KKK_2th.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -240,13 +240,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.NETHERITE_BLOCK)
                 .define('d', CELL_COMPONENT_1KKK_2th.get())
                 .unlockedBy("has_cell_component_1kkk_2th", has(CELL_COMPONENT_1KKK_2th.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_2th"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_2th"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_1KKK_2th.get())
                 .requires(ITEM_ULTIMATE_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_1KKK_2th.get())
                 .unlockedBy("has_cell_component_1kkk_2th", has(CELL_COMPONENT_1KKK_2th.get()))
                 .unlockedBy("has_item_ultimate_cell_housing", has(ITEM_ULTIMATE_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_2th_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_2th_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_1KKK_3th.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -256,13 +256,13 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.NETHERITE_BLOCK)
                 .define('d', CELL_COMPONENT_1KKK_3th.get())
                 .unlockedBy("has_cell_component_1kkk_3th", has(CELL_COMPONENT_1KKK_3th.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_3th"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_3th"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_1KKK_3th.get())
                 .requires(ITEM_ULTIMATE_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_1KKK_3th.get())
                 .unlockedBy("has_cell_component_1kkk_3th", has(CELL_COMPONENT_1KKK_3th.get()))
                 .unlockedBy("has_item_ultimate_cell_housing", has(ITEM_ULTIMATE_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_3th_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_3th_storage"));
         ShapedRecipeBuilder.shaped(ITEM_CELL_1KKK_4th.get())
                 .pattern("aba")
                 .pattern("bdb")
@@ -272,12 +272,12 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', Blocks.NETHERITE_BLOCK)
                 .define('d', CELL_COMPONENT_1KKK_4th.get())
                 .unlockedBy("has_cell_component_1kkk_4th", has(CELL_COMPONENT_1KKK_4th.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_4th"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_4th"));
         ShapelessRecipeBuilder.shapeless(ITEM_CELL_1KKK_4th.get())
                 .requires(ITEM_ULTIMATE_CELL_HOUSING.get())
                 .requires(CELL_COMPONENT_1KKK_4th.get())
                 .unlockedBy("has_cell_component_1kkk_4th", has(CELL_COMPONENT_1KKK_4th.get()))
                 .unlockedBy("has_item_ultimate_cell_housing", has(ITEM_ULTIMATE_CELL_HOUSING.get()))
-                .save(consumer, AppEng.makeId("network/cells/item_storage_cell_1kkk_4th_storage"));
+                .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_4th_storage"));
     }
 }
