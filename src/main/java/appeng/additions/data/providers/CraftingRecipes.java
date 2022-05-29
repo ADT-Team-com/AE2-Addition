@@ -1,10 +1,8 @@
 package appeng.additions.data.providers;
 
 import appeng.additions.AE2Additions;
-import appeng.core.AppEng;
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
-import appeng.datagen.providers.recipes.AE2RecipeProvider;
 import appeng.datagen.providers.tags.ConventionTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -15,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 import static appeng.additions.registry.ItemsRegistry.*;
+import static appeng.additions.registry.BlocksRegistry.*;
 
 public class CraftingRecipes extends RecipeProvider {
     public CraftingRecipes(DataGenerator generator) {
@@ -279,5 +278,51 @@ public class CraftingRecipes extends RecipeProvider {
                 .unlockedBy("has_cell_component_1kkk_4th", has(CELL_COMPONENT_1KKK_4th.get()))
                 .unlockedBy("has_item_ultimate_cell_housing", has(ITEM_ULTIMATE_CELL_HOUSING.get()))
                 .save(consumer, AE2Additions.makeId("network/cells/item_storage_cell_1kkk_4th_storage"));
+
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_1KK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_1KK.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/1kk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_4KK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_4KK.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/4kk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_16KK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_16KK.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/16kk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_64KK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_64KK.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/64kk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_256KK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_256KK.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/256kk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_1KKK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_1KKK_1th.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/1kkk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_4KKK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_1KKK_2th.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/4kkk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_16KKK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_1KKK_3th.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/16kkk_cpu_crafting_storage"));
+        ShapelessRecipeBuilder.shapeless(CRAFTING_STORAGE_BLOCK_64KKK.get())
+                .requires(AEBlocks.CRAFTING_UNIT)
+                .requires(CELL_COMPONENT_1KKK_4th.get())
+                .unlockedBy("has_crafting_unit", has(AEBlocks.CRAFTING_UNIT))
+                .save(consumer, AE2Additions.makeId("network/crafting/64kkk_cpu_crafting_storage"));
     }
 }

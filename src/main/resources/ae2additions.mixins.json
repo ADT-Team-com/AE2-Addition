@@ -5,6 +5,9 @@
   "refmap": "ae2additions.refmap.json",
   "compatibilityLevel": "JAVA_11",
   "mixins": [
+    "CraftingCPUClusterMixin",
+    "CraftingStorageBlockEntityMixin",
+    "CraftingUnitTypeMixin",
     "MixinBasicCellInventory"
   ],
   "client": [],

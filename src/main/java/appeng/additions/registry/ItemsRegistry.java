@@ -13,8 +13,6 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static appeng.core.definitions.AEItems.ITEM_CELL_HOUSING;
-
 public class ItemsRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AE2Additions.MODID);
     private static final Item.Properties defaultProperties = new Item.Properties().tab(AE2Additions.TAB);
