@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ae2:crafting_unit"
+    },
+    {
+      "item": "ae2additions:cell_component_1kkk_3th"
+    }
+  ],
+  "result": {
+    "item": "ae2additions:crafting_storage_block_16kkk"
+  }
+}

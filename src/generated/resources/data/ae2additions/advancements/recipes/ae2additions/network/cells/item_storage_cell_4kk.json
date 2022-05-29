@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ae2additions:network/cells/item_storage_cell_4kk"
+    ]
+  },
+  "criteria": {
+    "has_cell_component_4kk": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ae2additions:cell_component_4kk"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ae2additions:network/cells/item_storage_cell_4kk"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cell_component_4kk",
+      "has_the_recipe"
+    ]
+  ]
+}

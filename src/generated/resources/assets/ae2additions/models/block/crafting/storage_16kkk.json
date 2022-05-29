@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "ae2additions:block/crafting/storage_16kkk"
+  }
+}
