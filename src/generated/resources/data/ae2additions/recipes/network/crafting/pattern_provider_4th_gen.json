@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aba",
+    "cdc",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:fluix_block"
+    },
+    "b": {
+      "item": "ae2:logic_processor"
+    },
+    "c": {
+      "item": "ae2:capacity_card"
+    },
+    "d": {
+      "item": "ae2additions:pattern_provider_3th"
+    }
+  },
+  "result": {
+    "item": "ae2additions:pattern_provider_4th"
+  }
+}

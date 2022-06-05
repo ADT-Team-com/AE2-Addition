@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ae2additions:network/crafting/pattern_provider_5th_gen"
+    ]
+  },
+  "criteria": {
+    "has_pattern_provider_4th_gen": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ae2additions:pattern_provider_4th"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ae2additions:network/crafting/pattern_provider_5th_gen"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pattern_provider_4th_gen",
+      "has_the_recipe"
+    ]
+  ]
+}

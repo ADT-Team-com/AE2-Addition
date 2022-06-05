@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "omnidirectional=false": {
+      "model": "ae2additions:block/pattern_provider_2th_oriented",
+      "x": 90
+    },
+    "omnidirectional=true": {
+      "model": "ae2additions:block/pattern_provider_2th"
+    }
+  }
+}

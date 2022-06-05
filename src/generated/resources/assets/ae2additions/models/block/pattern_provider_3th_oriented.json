@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "ae2additions:block/pattern_provider_3th",
+    "down": "ae2additions:block/pattern_provider_3th_alternate",
+    "up": "ae2additions:block/pattern_provider_3th",
+    "north": "ae2additions:block/pattern_provider_3th_alternate_arrow",
+    "south": "ae2additions:block/pattern_provider_3th_alternate_arrow",
+    "east": "ae2additions:block/pattern_provider_3th_alternate_arrow",
+    "west": "ae2additions:block/pattern_provider_3th_alternate_arrow"
+  }
+}

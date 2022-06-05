@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aba",
+    "bcb",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:controller"
+    },
+    "b": {
+      "item": "ae2:cell_component_1k"
+    },
+    "c": {
+      "item": "ae2additions:pattern_provider_3th"
+    }
+  },
+  "result": {
+    "item": "ae2additions:pattern_provider_5th"
+  }
+}

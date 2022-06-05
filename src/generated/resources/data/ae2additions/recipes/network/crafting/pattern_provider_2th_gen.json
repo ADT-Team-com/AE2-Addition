@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "aba",
+    "cde",
+    "aga"
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:fluix_block"
+    },
+    "b": {
+      "item": "ae2:logic_processor"
+    },
+    "c": {
+      "item": "ae2:engineering_processor"
+    },
+    "d": {
+      "item": "ae2:pattern_provider"
+    },
+    "e": {
+      "item": "ae2:calculation_processor"
+    },
+    "g": {
+      "item": "ae2:capacity_card"
+    }
+  },
+  "result": {
+    "item": "ae2additions:pattern_provider_2th"
+  }
+}

@@ -1,6 +1,7 @@
 package appeng.additions.data;
 
 import appeng.additions.AE2Additions;
+import appeng.additions.data.providers.BlockDropProvider;
 import appeng.additions.data.providers.CraftingRecipes;
 import appeng.additions.data.providers.ModelDataProvider;
 import net.minecraft.data.DataGenerator;
@@ -17,6 +18,7 @@ public class AE2AdditionsDataGenerator {
     }
 
     public static void onGatherData(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        generator.addProvider(new BlockDropProvider(generator.getOutputFolder()));
         generator.addProvider(new CraftingRecipes(generator));
         generator.addProvider(new ModelDataProvider(generator, AE2Additions.MODID, existingFileHelper));
     }
