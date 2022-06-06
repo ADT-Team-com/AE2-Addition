@@ -4,6 +4,7 @@ import appeng.additions.AE2Additions;
 import appeng.additions.blocks.ExtendedCraftingStorageBlock;
 import appeng.additions.blocks.ExtendedPatternProviderBlock;
 import appeng.additions.registry.BlocksRegistry;
+import appeng.additions.utils.AdvancedCraftingUnitType;
 import appeng.block.crafting.AbstractCraftingUnitBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
@@ -35,8 +36,9 @@ public class ModelDataProvider extends BlockStateProvider {
         for(RegistryObject<Block> bro : blocks) {
             Block b = bro.get();
             if(b instanceof ExtendedCraftingStorageBlock) {
-                builtInBlockModel("crafting/"+((ExtendedCraftingStorageBlock) b).type.name().toLowerCase() + "_formed");
-                craftingModel(b, ((ExtendedCraftingStorageBlock) b).type.name().toLowerCase(Locale.ROOT));
+                AdvancedCraftingUnitType type = (AdvancedCraftingUnitType) ((ExtendedCraftingStorageBlock) b).type;
+                builtInBlockModel("crafting/"+type.name().toLowerCase() + "_formed");
+                craftingModel(b, type.name().toLowerCase(Locale.ROOT));
                 toRemove.add(bro);
             }
         }

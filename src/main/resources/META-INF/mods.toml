@@ -19,6 +19,6 @@ side = "BOTH"
 [[dependencies.ae2additions]]
 modId = "ae2"
 mandatory = true
-versionRange = "[11.0.0,12.0.0)"
+versionRange = "[11.1.1,12.0.0)"
 ordering = "AFTER"
 side = "BOTH"

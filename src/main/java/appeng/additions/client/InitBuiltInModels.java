@@ -2,11 +2,11 @@ package appeng.additions.client;
 
 import appeng.additions.AE2Additions;
 import appeng.additions.blocks.ExtendedCraftingStorageBlock;
-import appeng.additions.client.render.ExtendedCraftingCubeModel;
-import appeng.additions.registry.BlockEntitiesRegistry;
+import appeng.additions.client.render.ExtendedCraftingStorageModelProvider;
 import appeng.additions.registry.BlocksRegistry;
-import appeng.block.crafting.AbstractCraftingUnitBlock;
+import appeng.additions.utils.AdvancedCraftingUnitType;
 import appeng.client.render.SimpleModelLoader;
+import appeng.client.render.crafting.CraftingCubeModel;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
@@ -21,8 +21,8 @@ import static appeng.additions.utils.AdvancedCraftingUnitType.getAllTypes;
 
 public class InitBuiltInModels {
     public static void init() {
-        for(AbstractCraftingUnitBlock.CraftingUnitType type : getAllTypes()) {
-            addBuiltInModel("block/crafting/"+type.name().toLowerCase()+"_formed", ()->new ExtendedCraftingCubeModel(type));
+        for(AdvancedCraftingUnitType type : getAllTypes()) {
+            addBuiltInModel("block/crafting/"+type.name().toLowerCase()+"_formed", ()->new CraftingCubeModel(new ExtendedCraftingStorageModelProvider(type)));
         }
         for(RegistryObject<Block> ros : BlocksRegistry.BLOCKS.getEntries()) {
             Block b = ros.get();

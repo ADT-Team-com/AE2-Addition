@@ -1,18 +1,17 @@
 package appeng.additions.blocks;
 
-import appeng.block.crafting.CraftingStorageBlock;
-import appeng.blockentity.crafting.CraftingStorageBlockEntity;
+import appeng.block.crafting.AbstractCraftingUnitBlock;
+import appeng.block.crafting.ICraftingUnitType;
+import appeng.blockentity.crafting.CraftingBlockEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.concurrent.atomic.AtomicReference;
-
-public class ExtendedCraftingStorageBlock extends CraftingStorageBlock {
-    public ExtendedCraftingStorageBlock(Properties props, CraftingUnitType type) {
+public class ExtendedCraftingStorageBlock extends AbstractCraftingUnitBlock<CraftingBlockEntity> {
+    public ExtendedCraftingStorageBlock(Properties props, ICraftingUnitType type) {
         super(props, type);
-        BlockEntityType.BlockEntitySupplier<CraftingStorageBlockEntity> supplier = (blockPos, blockState) -> new CraftingStorageBlockEntity(ForgeRegistries.BLOCK_ENTITIES.getValue(new ResourceLocation("ae2", "crafting_storage")), blockPos, blockState);
-        BlockEntityType<CraftingStorageBlockEntity> bet = BlockEntityType.Builder.of(supplier, this).build(null);
-        setBlockEntity(CraftingStorageBlockEntity.class, bet, null, null);
+        BlockEntityType.BlockEntitySupplier<CraftingBlockEntity> supplier = (blockPos, blockState) -> new CraftingBlockEntity(ForgeRegistries.BLOCK_ENTITIES.getValue(new ResourceLocation("ae2", "crafting_storage")), blockPos, blockState);
+        BlockEntityType<CraftingBlockEntity> bet = BlockEntityType.Builder.of(supplier, this).build(null);
+        setBlockEntity(CraftingBlockEntity.class, bet, null, null);
     }
 }

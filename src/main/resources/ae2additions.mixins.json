@@ -7,7 +7,7 @@
   "mixins": [
     "CraftingCPUClusterMixin",
     "CraftingStorageBlockEntityMixin",
-    "CraftingUnitTypeMixin",
+    "GridMixin",
     "IPatternProviderLogicAccessor",
     "MixinBasicCellInventory"
   ],

@@ -46,7 +46,6 @@ public class BlocksRegistry {
     public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_3TH_INST = create("pattern_provider_3th",new ExtendedPatternProviderBlock(27));
     public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_4TH_INST = create("pattern_provider_4th",new ExtendedPatternProviderBlock(36));
     public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_5TH_INST = create("pattern_provider_5th",new ExtendedPatternProviderBlock(45));
-    //public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_6TH_INST = create("pattern_provider_6th",new ExtendedPatternProviderBlock(54));
 
     public static void register() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

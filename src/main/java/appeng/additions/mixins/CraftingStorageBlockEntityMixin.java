@@ -1,43 +1,32 @@
 package appeng.additions.mixins;
 
+import appeng.additions.utils.AdvancedCraftingUnitType;
 import appeng.additions.utils.IExtendedCraftingStorage;
 import appeng.block.crafting.AbstractCraftingUnitBlock;
 import appeng.blockentity.crafting.CraftingBlockEntity;
-import appeng.blockentity.crafting.CraftingStorageBlockEntity;
+import appeng.blockentity.grid.AENetworkBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static appeng.additions.utils.AdvancedCraftingUnitType.*;
 
-@Mixin(CraftingStorageBlockEntity.class)
-public abstract class CraftingStorageBlockEntityMixin extends CraftingBlockEntity implements IExtendedCraftingStorage {
+@Mixin(CraftingBlockEntity.class)
+public abstract class CraftingStorageBlockEntityMixin extends AENetworkBlockEntity implements IExtendedCraftingStorage {
+    @Shadow public abstract int getStorageBytes();
+
     public CraftingStorageBlockEntityMixin(BlockEntityType<?> blockEntityType, BlockPos pos, BlockState blockState) {
         super(blockEntityType, pos, blockState);
     }
 
-
-    @Inject(method = "getStorageBytes", at=@At("HEAD"), cancellable = true, remap = false)
-    public void injectGetStorageBytes(CallbackInfoReturnable<Integer> cir) {
-        if (this.level == null || this.notLoaded() || this.isRemoved()) {
-            cir.setReturnValue(0);
-            return;
-        }
-        final AbstractCraftingUnitBlock<?> unit = (AbstractCraftingUnitBlock<?>) this.level
-                .getBlockState(this.worldPosition)
-                .getBlock();
-        if(getAllTypes().contains(unit.type)) {
-            cir.setReturnValue(1);
-        }
-    }
-
     @Override
     public long getStorageBytesExtended() {
-        return getStorageMegaBytes() * 1024L * 1024L - 1L;
+        return getStorageMegaBytes() * 1024L * 1024L - this.getStorageBytes();
     }
 
     public int getStorageMegaBytes() {
@@ -47,8 +36,8 @@ public abstract class CraftingStorageBlockEntityMixin extends CraftingBlockEntit
         final AbstractCraftingUnitBlock<?> unit = (AbstractCraftingUnitBlock<?>) this.level
                 .getBlockState(this.worldPosition)
                 .getBlock();
-        if(getAllTypes().contains(unit.type)) {
-            return (int) Math.pow(4, getAllTypes().indexOf(unit.type));
+        if(unit.type instanceof AdvancedCraftingUnitType) {
+            return ((AdvancedCraftingUnitType) unit.type).getMegaBytes();
         }
         return 0;
     }
