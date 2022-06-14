@@ -19,7 +19,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
 
-version = '1.18.2-0.1.1'
+version = '1.18.2-0.1.2'
 group = 'appeng.additions' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'AE2-Additions'
 

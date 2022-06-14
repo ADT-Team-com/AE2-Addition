@@ -66,7 +66,7 @@ public class AE2Additions {
     public void modelRegistryEvent(ModelRegistryEvent event) {
         InitBuiltInModels.init();
     }
-    @OnlyIn(Dist.CLIENT)
+
     public Runnable initClient() {
         return ()->{
             FMLJavaModLoadingContext.get().getModEventBus().addListener(this::modelRegistryEvent);

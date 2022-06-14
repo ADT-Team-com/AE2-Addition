@@ -26,7 +26,9 @@ public abstract class CraftingStorageBlockEntityMixin extends AENetworkBlockEnti
 
     @Override
     public long getStorageBytesExtended() {
-        return getStorageMegaBytes() * 1024L * 1024L - this.getStorageBytes();
+        long mb = getStorageMegaBytes() * 1024L * 1024L;
+        if(mb == 0) return 0;
+        return mb - this.getStorageBytes();
     }
 
     public int getStorageMegaBytes() {
