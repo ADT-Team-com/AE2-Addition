@@ -1,4 +1,4 @@
-package appeng.additions.item.menu;
+package appeng.additions.menu;
 
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.Settings;

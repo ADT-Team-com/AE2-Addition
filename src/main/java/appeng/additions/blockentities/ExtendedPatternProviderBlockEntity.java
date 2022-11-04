@@ -1,10 +1,10 @@
 package appeng.additions.blockentities;
 
 import appeng.additions.blocks.ExtendedPatternProviderBlock;
-import appeng.additions.item.menu.PatternProviderMenuFifthGen;
-import appeng.additions.item.menu.PatternProviderMenuFourthGen;
-import appeng.additions.item.menu.PatternProviderMenuSecondGen;
-import appeng.additions.item.menu.PatternProviderMenuThirdGen;
+import appeng.additions.menu.PatternProviderMenuFifthGen;
+import appeng.additions.menu.PatternProviderMenuFourthGen;
+import appeng.additions.menu.PatternProviderMenuSecondGen;
+import appeng.additions.menu.PatternProviderMenuThirdGen;
 import appeng.additions.mixins.IPatternProviderLogicAccessor;
 import appeng.additions.registry.BlockEntitiesRegistry;
 import appeng.additions.registry.BlocksRegistry;

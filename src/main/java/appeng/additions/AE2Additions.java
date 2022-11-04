@@ -6,14 +6,11 @@ import appeng.additions.client.gui.PatternProviderScreenFifthGen;
 import appeng.additions.client.gui.PatternProviderScreenFourthGen;
 import appeng.additions.client.gui.PatternProviderScreenSecondGen;
 import appeng.additions.client.gui.PatternProviderScreenThirdGen;
-import appeng.additions.item.menu.PatternProviderMenuFifthGen;
-import appeng.additions.item.menu.PatternProviderMenuFourthGen;
-import appeng.additions.item.menu.PatternProviderMenuSecondGen;
-import appeng.additions.item.menu.PatternProviderMenuThirdGen;
-import appeng.additions.registry.BlockEntitiesRegistry;
-import appeng.additions.registry.BlocksRegistry;
-import appeng.additions.registry.CellsRegistry;
-import appeng.additions.registry.ItemsRegistry;
+import appeng.additions.menu.PatternProviderMenuFifthGen;
+import appeng.additions.menu.PatternProviderMenuFourthGen;
+import appeng.additions.menu.PatternProviderMenuSecondGen;
+import appeng.additions.menu.PatternProviderMenuThirdGen;
+import appeng.additions.registry.*;
 import appeng.init.InitMenuTypes;
 import appeng.init.client.InitScreens;
 import net.minecraft.resources.ResourceLocation;
@@ -47,6 +44,7 @@ public class AE2Additions {
         BlocksRegistry.register();
         ItemsRegistry.register();
         BlockEntitiesRegistry.register();
+        PartsRegistry.register();
     }
 
     public void registerContainerTypes(RegistryEvent.Register<MenuType<?>> event) {

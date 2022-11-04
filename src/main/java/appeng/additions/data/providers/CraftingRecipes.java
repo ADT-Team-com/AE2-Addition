@@ -365,7 +365,7 @@ public class CraftingRecipes extends RecipeProvider {
                 .pattern("aba")
                 .define('a', AEBlocks.CONTROLLER)
                 .define('b', AEItems.CELL_COMPONENT_1K)
-                .define('c', PATTERN_PROVIDER_BLOCK_3TH_INST)
+                .define('c', PATTERN_PROVIDER_BLOCK_4TH_INST)
                 .unlockedBy("has_pattern_provider_4th_gen", has(PATTERN_PROVIDER_BLOCK_4TH_INST))
                 .save(consumer, makeId("network/crafting/pattern_provider_5th_gen"));
     }

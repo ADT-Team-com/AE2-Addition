@@ -1,4 +1,4 @@
-package appeng.additions.item.menu;
+package appeng.additions.menu;
 
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.Settings;
@@ -16,12 +16,12 @@ import appeng.menu.slot.RestrictedInputSlot;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
 
-public class PatternProviderMenuSecondGen extends AEBaseMenu {
+public class PatternProviderMenuThirdGen extends AEBaseMenu {
 
-    public static final MenuType<PatternProviderMenuSecondGen> TYPE = MenuTypeBuilder
-            .create(PatternProviderMenuSecondGen::new, PatternProviderLogicHost.class)
+    public static final MenuType<PatternProviderMenuThirdGen> TYPE = MenuTypeBuilder
+            .create(PatternProviderMenuThirdGen::new, PatternProviderLogicHost.class)
             .requirePermission(SecurityPermissions.BUILD)
-            .build("pattern_provider_2th");
+            .build("pattern_provider_3th");
 
     private final PatternProviderLogic logic;
 
@@ -30,14 +30,14 @@ public class PatternProviderMenuSecondGen extends AEBaseMenu {
     @GuiSync(4)
     public YesNo showInAccessTerminal = YesNo.YES;
 
-    public PatternProviderMenuSecondGen(int id, Inventory playerInventory, PatternProviderLogicHost host) {
+    public PatternProviderMenuThirdGen(int id, Inventory playerInventory, PatternProviderLogicHost host) {
         super(TYPE, id, playerInventory, host);
 
         this.createPlayerInventorySlots(playerInventory);
 
         this.logic = host.getLogic();
 
-        for (int x = 0; x < 18; x++) {
+        for (int x = 0; x < 27; x++) {
             this.addSlot(new RestrictedInputSlot(RestrictedInputSlot.PlacableItemType.ENCODED_PATTERN,
                             logic.getPatternInv(), x),
                     SlotSemantics.ENCODED_PATTERN);

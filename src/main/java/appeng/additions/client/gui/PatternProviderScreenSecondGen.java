@@ -1,6 +1,6 @@
 package appeng.additions.client.gui;
 
-import appeng.additions.item.menu.PatternProviderMenuSecondGen;
+import appeng.additions.menu.PatternProviderMenuSecondGen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 

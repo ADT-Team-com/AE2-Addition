@@ -1,7 +1,6 @@
 package appeng.additions.client.gui;
 
-import appeng.additions.item.menu.PatternProviderMenuFourthGen;
-import appeng.additions.item.menu.PatternProviderMenuThirdGen;
+import appeng.additions.menu.PatternProviderMenuFourthGen;
 import appeng.api.config.Settings;
 import appeng.api.config.YesNo;
 import appeng.client.gui.AEBaseScreen;
