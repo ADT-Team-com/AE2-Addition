@@ -29,7 +29,7 @@ public class PartsRegistry {
     public static <T extends IPart> RegistryObject<PartItem<T>> createPart(String name,
                                                                            Class<T> partClass,
                                                                            Function<IPartItem<T>, T> factory) {
-        return PARTS.register(name, () -> new PartItem<>(ItemsRegistry.defaultProperties, partClass, factory));
+        return PARTS.register(name, () -> new PartItem<>(ItemsRegistry.defaultProperties.stacksTo(64), partClass, factory));
     }
 
     public static void register() {
