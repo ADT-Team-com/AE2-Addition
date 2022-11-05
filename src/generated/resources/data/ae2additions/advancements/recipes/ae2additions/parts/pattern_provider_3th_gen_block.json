@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ae2additions:parts/pattern_provider_3th_gen_block"
+    ]
+  },
+  "criteria": {
+    "parts/pattern_provider_3th_gen_part": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ae2additions:part_pattern_provider_3th"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ae2additions:parts/pattern_provider_3th_gen_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "parts/pattern_provider_3th_gen_part",
+      "has_the_recipe"
+    ]
+  ]
+}

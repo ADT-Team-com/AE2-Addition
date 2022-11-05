@@ -1,14 +1,16 @@
 package appeng.additions.data.providers;
 
-import appeng.additions.AE2Additions;
 import appeng.core.definitions.AEBlocks;
 import appeng.core.definitions.AEItems;
+import appeng.core.definitions.AEParts;
 import appeng.datagen.providers.tags.ConventionTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
@@ -16,6 +18,7 @@ import java.util.function.Consumer;
 import static appeng.additions.AE2Additions.makeId;
 import static appeng.additions.registry.ItemsRegistry.*;
 import static appeng.additions.registry.BlocksRegistry.*;
+import static appeng.additions.registry.PartsRegistry.*;
 
 public class CraftingRecipes extends RecipeProvider {
     public CraftingRecipes(DataGenerator generator) {
@@ -368,5 +371,38 @@ public class CraftingRecipes extends RecipeProvider {
                 .define('c', PATTERN_PROVIDER_BLOCK_4TH_INST)
                 .unlockedBy("has_pattern_provider_4th_gen", has(PATTERN_PROVIDER_BLOCK_4TH_INST))
                 .save(consumer, makeId("network/crafting/pattern_provider_5th_gen"));
+        ShapedRecipeBuilder.shaped(PATTERN_PROVIDER_BLOCK_6TH_INST)
+                .pattern("aba")
+                .pattern("bcb")
+                .pattern("aba")
+                .define('a', AEBlocks.CONTROLLER)
+                .define('b', AEItems.CELL_COMPONENT_4K)
+                .define('c', PATTERN_PROVIDER_BLOCK_5TH_INST)
+                .unlockedBy("has_pattern_provider_5th_gen", has(PATTERN_PROVIDER_BLOCK_5TH_INST))
+                .save(consumer, makeId("network/crafting/pattern_provider_6th_gen"));
+        ShapedRecipeBuilder.shaped(PART_ADVANCED_PATTERN_TERM.get())
+                .pattern(" a ")
+                .pattern("aba")
+                .pattern(" a ")
+                .define('a', AEItems.ENGINEERING_PROCESSOR)
+                .define('b', AEParts.PATTERN_ACCESS_TERMINAL)
+                .unlockedBy("has_pattern_access_terminal", has(AEParts.PATTERN_ACCESS_TERMINAL))
+                .save(consumer, makeId("parts/advanced_pattern_access_terminal"));
+        buildPartPatternRecipe(PATTERN_PROVIDER_BLOCK_2TH_INST, PART_PATTERN_PROVIDER_2TH.get(), "parts/pattern_provider_2th_gen", consumer);
+        buildPartPatternRecipe(PATTERN_PROVIDER_BLOCK_3TH_INST, PART_PATTERN_PROVIDER_3TH.get(), "parts/pattern_provider_3th_gen", consumer);
+        buildPartPatternRecipe(PATTERN_PROVIDER_BLOCK_4TH_INST, PART_PATTERN_PROVIDER_4TH.get(), "parts/pattern_provider_4th_gen", consumer);
+        buildPartPatternRecipe(PATTERN_PROVIDER_BLOCK_5TH_INST, PART_PATTERN_PROVIDER_5TH.get(), "parts/pattern_provider_5th_gen", consumer);
+        buildPartPatternRecipe(PATTERN_PROVIDER_BLOCK_6TH_INST, PART_PATTERN_PROVIDER_6TH.get(), "parts/pattern_provider_6th_gen", consumer);
+    }
+
+    private void buildPartPatternRecipe(Block block, Item part, String id, Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(block)
+                .requires(part)
+                .unlockedBy(id + "_part", has(part))
+                .save(consumer, makeId(id + "_block"));
+        ShapelessRecipeBuilder.shapeless(part)
+                .requires(block)
+                .unlockedBy(id + "_block", has(block))
+                .save(consumer, makeId(id + "_part"));
     }
 }

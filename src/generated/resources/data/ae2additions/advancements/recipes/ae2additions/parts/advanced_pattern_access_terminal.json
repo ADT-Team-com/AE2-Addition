@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ae2additions:parts/advanced_pattern_access_terminal"
+    ]
+  },
+  "criteria": {
+    "has_pattern_access_terminal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ae2:pattern_access_terminal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ae2additions:parts/advanced_pattern_access_terminal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pattern_access_terminal",
+      "has_the_recipe"
+    ]
+  ]
+}

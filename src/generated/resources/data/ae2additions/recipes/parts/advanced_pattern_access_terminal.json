@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " a ",
+    "aba",
+    " a "
+  ],
+  "key": {
+    "a": {
+      "item": "ae2:engineering_processor"
+    },
+    "b": {
+      "item": "ae2:pattern_access_terminal"
+    }
+  },
+  "result": {
+    "item": "ae2additions:part_advanced_pattern_term"
+  }
+}
