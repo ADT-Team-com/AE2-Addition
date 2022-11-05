@@ -27,7 +27,7 @@ public class BlockEntitiesRegistry {
     public static final BlockEntityType<ExtendedPatternProviderBlockEntity> EXTENDED_PATTERN_PROVIDER = create(
             "extended_pattern_provider", ExtendedPatternProviderBlockEntity.class,
             ExtendedPatternProviderBlockEntity::new, PATTERN_PROVIDER_BLOCK_2TH_INST, PATTERN_PROVIDER_BLOCK_3TH_INST,
-            PATTERN_PROVIDER_BLOCK_4TH_INST, PATTERN_PROVIDER_BLOCK_5TH_INST/*, PATTERN_PROVIDER_BLOCK_6TH_INST*/);
+            PATTERN_PROVIDER_BLOCK_4TH_INST, PATTERN_PROVIDER_BLOCK_5TH_INST, PATTERN_PROVIDER_BLOCK_6TH_INST);
     public static void register() {
         register.register(FMLJavaModLoadingContext.get().getModEventBus());
     }

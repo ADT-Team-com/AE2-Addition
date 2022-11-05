@@ -1,10 +1,7 @@
 package appeng.additions.blockentities;
 
 import appeng.additions.blocks.ExtendedPatternProviderBlock;
-import appeng.additions.menu.PatternProviderMenuFifthGen;
-import appeng.additions.menu.PatternProviderMenuFourthGen;
-import appeng.additions.menu.PatternProviderMenuSecondGen;
-import appeng.additions.menu.PatternProviderMenuThirdGen;
+import appeng.additions.menu.*;
 import appeng.additions.mixins.IPatternProviderLogicAccessor;
 import appeng.additions.registry.BlockEntitiesRegistry;
 import appeng.additions.registry.BlocksRegistry;
@@ -48,6 +45,7 @@ public class ExtendedPatternProviderBlockEntity extends PatternProviderBlockEnti
             case 27 -> MenuOpener.open(PatternProviderMenuThirdGen.TYPE, player, locator);
             case 36 -> MenuOpener.open(PatternProviderMenuFourthGen.TYPE, player, locator);
             case 45 -> MenuOpener.open(PatternProviderMenuFifthGen.TYPE, player, locator);
+            case 54 -> MenuOpener.open(PatternProviderMenuSixthGen.TYPE, player, locator);
             default -> super.openMenu(player, locator);
         }
     }

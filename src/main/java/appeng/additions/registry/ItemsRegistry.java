@@ -15,7 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ItemsRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AE2Additions.MODID);
-    private static final Item.Properties defaultProperties = new Item.Properties().tab(AE2Additions.TAB);
+    public static final Item.Properties defaultProperties = new Item.Properties().tab(AE2Additions.TAB);
     public static final RegistryObject<MaterialItem> ITEM_ADVANCED_CELL_HOUSING = ITEMS.register("item_advanced_cell_housing", () -> new MaterialItem(defaultProperties));
     public static final RegistryObject<MaterialItem> ITEM_ULTIMATE_CELL_HOUSING = ITEMS.register("item_ultimate_cell_housing", () -> new MaterialItem(defaultProperties));
 

@@ -5,6 +5,7 @@ import appeng.additions.blockentities.ExtendedPatternProviderBlockEntity;
 import appeng.additions.blocks.ExtendedCraftingStorageBlock;
 import appeng.additions.blocks.ExtendedPatternProviderBlock;
 import appeng.block.AEBaseBlock;
+import appeng.block.AEBaseBlockItem;
 import appeng.block.AEBaseEntityBlock;
 import appeng.blockentity.AEBaseBlockEntity;
 import net.minecraft.world.item.BlockItem;
@@ -42,10 +43,11 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> CRAFTING_STORAGE_BLOCK_16KKK = BLOCKS.register("crafting_storage_block_16kkk", ()-> new ExtendedCraftingStorageBlock(defaultProperties, STORAGE_16KKK));
     public static final RegistryObject<Block> CRAFTING_STORAGE_BLOCK_64KKK = BLOCKS.register("crafting_storage_block_64kkk", ()-> new ExtendedCraftingStorageBlock(defaultProperties, STORAGE_64KKK));
 
-    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_2TH_INST = create("pattern_provider_2th",new ExtendedPatternProviderBlock(18));
-    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_3TH_INST = create("pattern_provider_3th",new ExtendedPatternProviderBlock(27));
-    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_4TH_INST = create("pattern_provider_4th",new ExtendedPatternProviderBlock(36));
-    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_5TH_INST = create("pattern_provider_5th",new ExtendedPatternProviderBlock(45));
+    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_2TH_INST = create("pattern_provider_2th", new ExtendedPatternProviderBlock(18));
+    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_3TH_INST = create("pattern_provider_3th", new ExtendedPatternProviderBlock(27));
+    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_4TH_INST = create("pattern_provider_4th", new ExtendedPatternProviderBlock(36));
+    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_5TH_INST = create("pattern_provider_5th", new ExtendedPatternProviderBlock(45));
+    public static final AEBaseEntityBlock<ExtendedPatternProviderBlockEntity> PATTERN_PROVIDER_BLOCK_6TH_INST = create("pattern_provider_6th", new ExtendedPatternProviderBlock(54));
 
     public static void register() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -54,7 +56,7 @@ public class BlocksRegistry {
     @SubscribeEvent
     public static void onItemBlockRegistry(RegistryEvent.Register<Item> event) {
         BLOCKS.getEntries().stream().map(RegistryObject::get)
-                .forEach(block -> event.getRegistry().register(new BlockItem(block, new Item.Properties()
+                .forEach(block -> event.getRegistry().register(new AEBaseBlockItem(block, new Item.Properties()
                         .tab(AE2Additions.TAB)).setRegistryName(block.getRegistryName())));
         BlockEntitiesRegistry.initVisual();
     }

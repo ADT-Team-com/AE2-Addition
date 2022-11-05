@@ -32,5 +32,12 @@
   "block.ae2additions.pattern_provider_2th": "ME Pattern Provider 2th Generation",
   "block.ae2additions.pattern_provider_3th": "ME Pattern Provider 3th Generation",
   "block.ae2additions.pattern_provider_4th": "ME Pattern Provider 4th Generation",
-  "block.ae2additions.pattern_provider_5th": "ME Pattern Provider 5th Generation"
+  "block.ae2additions.pattern_provider_5th": "ME Pattern Provider 5th Generation",
+  "block.ae2additions.pattern_provider_6th": "ME Pattern Provider 6th Generation",
+  "item.ae2additions.part_pattern_provider_2th": "ME Pattern Provider 2th Generation",
+  "item.ae2additions.part_pattern_provider_3th": "ME Pattern Provider 3th Generation",
+  "item.ae2additions.part_pattern_provider_4th": "ME Pattern Provider 4th Generation",
+  "item.ae2additions.part_pattern_provider_5th": "ME Pattern Provider 5th Generation",
+  "item.ae2additions.part_pattern_provider_6th": "ME Pattern Provider 6th Generation",
+  "item.ae2additions.part_advanced_pattern_term": "ME Advanced Pattern Access Terminal"
 }

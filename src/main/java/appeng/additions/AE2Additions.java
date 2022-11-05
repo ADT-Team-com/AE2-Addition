@@ -2,16 +2,10 @@ package appeng.additions;
 
 import appeng.additions.client.InitAutoRotatingModel;
 import appeng.additions.client.InitBuiltInModels;
-import appeng.additions.client.gui.PatternProviderScreenFifthGen;
-import appeng.additions.client.gui.PatternProviderScreenFourthGen;
-import appeng.additions.client.gui.PatternProviderScreenSecondGen;
-import appeng.additions.client.gui.PatternProviderScreenThirdGen;
-import appeng.additions.menu.PatternProviderMenuFifthGen;
-import appeng.additions.menu.PatternProviderMenuFourthGen;
-import appeng.additions.menu.PatternProviderMenuSecondGen;
-import appeng.additions.menu.PatternProviderMenuThirdGen;
+import appeng.additions.client.gui.*;
+import appeng.additions.menu.*;
 import appeng.additions.registry.*;
-import appeng.init.InitMenuTypes;
+import appeng.client.gui.me.interfaceterminal.InterfaceTerminalScreen;
 import appeng.init.client.InitScreens;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.MenuType;
@@ -22,7 +16,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.GenericEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -49,7 +42,7 @@ public class AE2Additions {
 
     public void registerContainerTypes(RegistryEvent.Register<MenuType<?>> event) {
         event.getRegistry().registerAll(PatternProviderMenuSecondGen.TYPE, PatternProviderMenuThirdGen.TYPE, PatternProviderMenuFourthGen.TYPE,
-                PatternProviderMenuFifthGen.TYPE);
+                PatternProviderMenuFifthGen.TYPE, PatternProviderMenuSixthGen.TYPE, AdvancedInterfaceTerminalMenu.TYPE);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -73,6 +66,8 @@ public class AE2Additions {
             InitScreens.register(PatternProviderMenuThirdGen.TYPE, PatternProviderScreenThirdGen::new, "/screens/pattern_provider_third_gen.json");
             InitScreens.register(PatternProviderMenuFourthGen.TYPE, PatternProviderScreenFourthGen::new, "/screens/pattern_provider_fourth_gen.json");
             InitScreens.register(PatternProviderMenuFifthGen.TYPE, PatternProviderScreenFifthGen::new, "/screens/pattern_provider_fifth_gen.json");
+            InitScreens.register(PatternProviderMenuSixthGen.TYPE, PatternProviderScreenSixthGen::new, "/screens/pattern_provider_sixth_gen.json");
+            InitScreens.<AdvancedInterfaceTerminalMenu, AdvancedInterfaceTerminalScreen<AdvancedInterfaceTerminalMenu>>register(AdvancedInterfaceTerminalMenu.TYPE, AdvancedInterfaceTerminalScreen::new, "/screens/pattern_access_terminal.json");
         };
     }
 
