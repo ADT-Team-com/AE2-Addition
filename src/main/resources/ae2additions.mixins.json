@@ -6,12 +6,12 @@
   "compatibilityLevel": "JAVA_11",
   "mixins": [
     "CraftingCPUClusterMixin",
-    "InterfaceTerminalPacketMixin",
     "IPatternProviderLogicAccessor",
-    "MixinBasicCellInventory"
+    "MixinBasicCellInventory",
+    "CraftingStorageBlockEntityMixin"
   ],
   "client": [
-    "CraftingStorageBlockEntityMixin"
+    "InterfaceTerminalPacketMixin"
   ],
   "server": [],
   "injectors": {
